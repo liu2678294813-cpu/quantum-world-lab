@@ -35,7 +35,7 @@
 - [逐场景学习导览](学习导览.md)
 - [使用说明](使用说明.md)
 - [289题CSV对照](source-notes/model-question-map.csv)
-- [物理验证记录](verification/physics-qa.json)：34组通过，包括归一化、边界、薛定谔方程残差、幺正性和束缚阈值。
+- [物理验证记录](verification/physics-qa.json)：35组通过，包括归一化、边界、薛定谔方程残差、幺正性和束缚阈值。
 - [浏览器验证记录](verification/browser-qa.json)：52场景及参数端点/选项、图片和录制下载、手机布局、零外部网络请求。
 
 ## 本地开发与更新

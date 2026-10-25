@@ -13,6 +13,7 @@
   const div=(a,b)=>{const d=abs2(b);return {re:(a.re*b.re+a.im*b.im)/d,im:(a.im*b.re-a.re*b.im)/d};};
   function complete(z){z.density=abs2(z);return z;}
   function box(n,x,t=0){return complete(polar(x<0||x>1?0:SQRT2*Math.sin(n*Math.PI*x),-n*n*t));}
+  function boxProbability(n,a=0,b=1){const F=x=>{const u=clamp(x,0,1);return u-Math.sin(2*n*Math.PI*u)/(2*n*Math.PI);};return F(b)-F(a);}
   function superposition(x,t,a=.5,phase=0){return complete(add(mul(polar(Math.sqrt(a),0),box(1,x,t)),mul(polar(Math.sqrt(1-a),phase),box(2,x,t))));}
   function packet(x,t,sigma=1,k=1.2,x0=-5){
     const q=t/(2*sigma*sigma),u=x-x0-k*t,d=1+q*q;
@@ -54,7 +55,7 @@
   function basis(theta,phi,beta){const a=polar(Math.cos(theta/2),0),b=polar(Math.sin(theta/2),phi),c=Math.cos(beta/2),s=Math.sin(beta/2);return {old:[abs2(a),abs2(b)],rotated:[abs2(add(mul({re:c,im:0},a),mul({re:s,im:0},b))),abs2(add(mul({re:-s,im:0},a),mul({re:c,im:0},b)))]};}
   function hydrogenRadial(state,r){if(r<0)return 0;switch(state){case'1s':return 4*r*r*Math.exp(-2*r);case'2s':return r*r*(2-r)**2*Math.exp(-r)/8;case'2pz':return r**4*Math.exp(-r)/24;case'3dz2':return 8*r**6*Math.exp(-2*r/3)/98415;default:return 0;}}
   function hydrogenSpatial(state,x,y,z){const r=Math.hypot(x,y,z);if(r<1e-12)return state==='1s'?1/Math.PI:state==='2s'?1/(8*Math.PI):0;const c=z/r;const angular=state==='2pz'?3*c*c/(4*Math.PI):state==='3dz2'?5*(3*c*c-1)**2/(16*Math.PI):1/(4*Math.PI);return hydrogenRadial(state,r)*angular/(r*r);}
-  window.QSPhysicsA={box,superposition,packet,transmission,barrierWave,oscillator,coherent,uncertainty,basis,hydrogenRadial,hydrogenSpatial};
+  window.QSPhysicsA={box,boxProbability,superposition,packet,transmission,barrierWave,oscillator,coherent,uncertainty,basis,hydrogenRadial,hydrogenSpatial};
 
   function text(ctx,s,x,y,color=C.muted,size=12,align='left'){ctx.save();ctx.fillStyle=color;ctx.font=`${size}px "Segoe UI", "Microsoft YaHei", sans-serif`;ctx.textAlign=align;ctx.textBaseline='middle';ctx.fillText(String(s),x,y);ctx.restore();}
   function line(ctx,x1,y1,x2,y2,color=C.grid,width=1,dash=[]){ctx.save();ctx.strokeStyle=color;ctx.lineWidth=width;ctx.setLineDash(dash);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore();}
@@ -63,11 +64,12 @@
   function arrow(ctx,x1,y1,x2,y2,color=C.blue,width=2){line(ctx,x1,y1,x2,y2,color,width);const a=Math.atan2(y2-y1,x2-x1);line(ctx,x2,y2,x2-9*Math.cos(a-.4),y2-9*Math.sin(a-.4),color,width);line(ctx,x2,y2,x2-9*Math.cos(a+.4),y2-9*Math.sin(a+.4),color,width);}
   function panelPair(w,h){return w<620?[{x:9,y:4,w:w-18,h:h*.49-8},{x:9,y:h*.5,w:w-18,h:h*.49-8}]:[{x:12,y:10,w:w*.49-18,h:h-20},{x:w*.5+7,y:10,w:w*.49-18,h:h-20}];}
   function plot(ctx,p){
-    const {x,y,w,h,xmin,xmax,ymin,ymax,title='',xlabel='',ylabel='',curves=[]}=p;
+    const {x,y,w,h,xmin,xmax,ymin,ymax,title='',xlabel='',ylabel='',curves=[],yticks}=p;
     const left=x+46,right=x+w-17,top=y+35,bottom=y+h-42;
     const X=v=>left+(v-xmin)/(xmax-xmin)*(right-left),Y=v=>bottom-(v-ymin)/(ymax-ymin)*(bottom-top);
     text(ctx,title,x+8,y+13,C.text,13);
-    for(let j=0;j<=4;j++){const xx=xmin+(xmax-xmin)*j/4,yy=ymin+(ymax-ymin)*j/4;line(ctx,X(xx),top,X(xx),bottom,C.grid);line(ctx,left,Y(yy),right,Y(yy),C.grid);text(ctx,Math.abs(xx)<1e-9?'0':Number(xx.toFixed(1)),X(xx),bottom+16,C.muted,10,'center');text(ctx,Math.abs(yy)<1e-9?'0':Number(yy.toFixed(Math.max(1,Math.min(6,1-Math.floor(Math.log10(ymax-ymin)))))),left-8,Y(yy),C.muted,10,'right');}
+    for(let j=0;j<=4;j++){const xx=xmin+(xmax-xmin)*j/4;line(ctx,X(xx),top,X(xx),bottom,C.grid);text(ctx,window.QSKit.formatTick(xx,xmax-xmin),X(xx),bottom+16,C.muted,10,'center');}
+    for(const yy of yticks||Array.from({length:5},(_,j)=>ymin+(ymax-ymin)*j/4)){line(ctx,left,Y(yy),right,Y(yy),C.grid);text(ctx,window.QSKit.formatTick(yy,ymax-ymin),left-8,Y(yy),C.muted,10,'right');}
     if(ymin<0&&ymax>0)line(ctx,left,Y(0),right,Y(0),'#4e5872');
     text(ctx,xlabel,(left+right)/2,bottom+34,C.muted,11,'center');text(ctx,ylabel,left,top-10,C.muted,10);
     ctx.save();ctx.beginPath();ctx.rect(left,top,right-left,bottom-top);ctx.clip();
@@ -75,7 +77,7 @@
       ctx.strokeStyle=q.color;ctx.lineWidth=q.width||2;ctx.setLineDash(q.dash||[]);ctx.stroke();ctx.setLineDash([]);
     }ctx.restore();return{X,Y,left,right,top,bottom};
   }
-  function wavePanels(ctx,w,h,t,fn,{xmin=0,xmax=1,densityMax=4,ampMax=1.6,leftTitle='概率密度 · |ψ|²',rightTitle='复波函数 · 蓝 Re ψ / 紫 Im ψ'}={}){const [a,b]=panelPair(w,h);const pa=plot(ctx,{...a,xmin,xmax,ymin:0,ymax:densityMax,title:leftTitle,xlabel:'位置 x',curves:[{fn:x=>fn(x).density,color:C.gold,fill:true}]});plot(ctx,{...b,xmin,xmax,ymin:-ampMax,ymax:ampMax,title:rightTitle,xlabel:'位置 x',curves:[{fn:x=>fn(x).re,color:C.blue},{fn:x=>fn(x).im,color:C.purple,dash:[5,4]}]});return pa;}
+  function wavePanels(ctx,w,h,t,fn,{xmin=0,xmax=1,densityMax=4,ampMax=1.6,leftTitle='概率密度 · |ψ|²',rightTitle='复波函数 · 蓝 Re ψ / 紫 Im ψ',densityTicks,densityFill=true,xlabel='位置 x'}={}){const [a,b]=panelPair(w,h);const pa=plot(ctx,{...a,xmin,xmax,ymin:0,ymax:densityMax,yticks:densityTicks,title:leftTitle,xlabel,curves:[{fn:x=>fn(x).density,color:C.gold,fill:densityFill}]});plot(ctx,{...b,xmin,xmax,ymin:-ampMax,ymax:ampMax,title:rightTitle,xlabel,curves:[{fn:x=>fn(x).re,color:C.blue},{fn:x=>fn(x).im,color:C.purple,dash:[5,4]}]});return pa;}
   function seeded(seed){let s=(seed|0)||1;return()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return(s>>>0)/4294967296;};}
   const ctrl=(key,label,min,max,step,value,unit)=>({key,label,min,max,step,value,...(unit?{unit}:{})});
   const select=(key,label,options,value)=>({key,label,options:options.map(x=>typeof x==='string'?{value:x,label:x}:x),value});
@@ -83,8 +85,8 @@
   const scenes=[];
   function push(scene){scenes.push(scene);}
 
-  push({id:'stationary',chapter:1,title:'定态：波函数在动，概率不动',subtitle:'无限深势阱 · 能量本征态',description:'看清“定态”的真正含义：复波函数不断转相位，但每处找到粒子的概率保持不变。',formula:'ψₙ(x,τ) = √2 sin(nπx) e⁻ⁱⁿ²τ； ρ = |ψₙ|²',explanation:'墙在 x=0 和 x=1，波函数在两端严格为零。时间只带来一个整体相位，因此实部、虚部会起伏，概率密度不会移动。这里 τ=E₁t/ℏ，长度以阱宽 L 为单位。',observe:'左图金色概率密度保持静止；右图蓝色实部和紫色虚部交替变化。n 增大时，内部节点数变为 n−1。',experiment:'把 n 从 1 调到 4，再暂停并拖动时间。比较节点位置、峰数和概率密度是否变化。',caution:'曲线高度是概率幅或概率密度，不是粒子在空间中的上下位移。定态不意味着粒子静止。',source:source('1–3；30–33','7–9；36–39','学习要点；无限阱相关题组'),controls:[ctrl('n','量子数 n',1,6,1,2)],duration:TAU,
-    render(ctx,w,h,t,p){wavePanels(ctx,w,h,t,x=>box(+p.n,x,t),{densityMax:2.25});},metrics(t,p){return[{label:'能量 E / E₁',value:(p.n*p.n).toFixed(0)},{label:'内部节点',value:String(p.n-1)},{label:'总概率',value:'1.000'}];}});
+  push({id:'stationary',chapter:1,title:'定态：波函数在动，概率不动',subtitle:'无限深势阱 · 本征态与概率面积',description:'先辨认量子数n，再区分“某点的密度高度”与“区间下的概率面积”。拖动检查位置，直接核对密度和积分。',formula:'ξ=x/L；ρξ=L|Ψ|²=2sin²(nπξ)；P[0,ξ*]=ξ*−sin(2nπξ*)/(2nπ)',explanation:'横轴ξ=x/L，纵轴ρξ=L|Ψ|²，二者均已约化。n=1时中点密度为2；n=2时中点是节点、密度为0。归一化要求整条密度曲线下的面积为1，不要求曲线高度小于1，也不能直接把离散高度相加。',observe:'默认n=2有两座峰，峰在ξ=0.25与0.75，高度均为2；ξ=0.5处为节点。蓝色阴影表示从0到检查位置ξ*的概率，其面积可以直接对照下方读数。',experiment:'保持ξ*=0.5，在n=1和n=2之间切换：密度分别是2与0，但左半阱概率都为0.5。再移动ξ*，比较面积和高度怎样分别改变。',caution:'概率密度有量纲；这里画的是无量纲ρξ=L|Ψ|²。单个精确位置在连续分布中的概率为0，有限区间的概率才由积分给出。定态不意味着粒子静止。',source:source('1–3；30–33','7–9；36–39','学习要点；无限阱相关题组'),controls:[ctrl('n','量子数 n',1,6,1,2),ctrl('probe','检查位置 ξ*=x/L',0,1,.005,.5)],duration:TAU,
+    render(ctx,w,h,t,p){const n=+p.n,u=clamp(+(p.probe??.5),0,1),f=x=>box(n,x,t),q=wavePanels(ctx,w,h,t,f,{densityMax:2.25,densityTicks:[0,.5,1,1.5,2],densityFill:false,leftTitle:`密度 ρξ=2sin²(nπξ) · 当前 n=${n}`,rightTitle:`复波函数 · n=${n} · 蓝实部 / 紫虚部`,xlabel:'约化位置 ξ=x/L'});ctx.save();ctx.beginPath();ctx.moveTo(q.X(0),q.Y(0));for(let j=0;j<=200;j++){const x=u*j/200;ctx.lineTo(q.X(x),q.Y(f(x).density));}ctx.lineTo(q.X(u),q.Y(0));ctx.closePath();ctx.fillStyle=C.blue+'30';ctx.fill();ctx.restore();line(ctx,q.X(u),q.top,q.X(u),q.bottom,C.pink,1,[4,4]);dot(ctx,q.X(u),q.Y(f(u).density),4,C.pink);text(ctx,`阴影面积 P(0≤ξ≤${u.toFixed(3)})=${boxProbability(n,0,u).toFixed(4)}`,q.left+7,q.top+15,C.blue,w<620?10:11);},metrics(t,p){const n=+p.n,u=clamp(+(p.probe??.5),0,1),rho=box(n,u).density;return[{label:'当前本征态',value:`n=${n}`},{label:'检查点密度 ρξ',value:(Math.abs(rho)<1e-12?0:rho).toFixed(6)},{label:`P(0≤ξ≤${u.toFixed(3)})`,value:boxProbability(n,0,u).toFixed(6)},{label:'全阱积分 ∫ρξdξ',value:boxProbability(n).toFixed(6)}];}});
 
   push({id:'superposition',chapter:1,title:'叠加态：概率开始流动',subtitle:'两能级拍频 · 相对相位',description:'把两个静止的概率分布叠加，交叉项便让概率在阱内来回重新分配。',formula:'ψ = √a ψ₁ + √(1−a) eⁱφ ψ₂； ΔE = 3E₁',explanation:'两个本征态带有不同的时间相位，因而相对相位随时间演化。概率中出现 2 Re(c₁*c₂ψ₁*ψ₂) 这一干涉项；各能级概率仍为 a 和 1−a。',observe:'金色峰会向左右偏移。改相对相位能改变分布；把 a 调到 0 或 1，运动消失，回到定态。',experiment:'先取 a=0.5，比较 φ=0 和 φ=π；再把 a 调到 1。注意概率运动频率来自能量差。',caution:'图中的概率流动不能直接读作某一粒子的实际轨迹。测能量仍只得到离散的 E₁ 或 E₂。',source:source('30–33','36–39','1.24–1.29：无限阱叠加态'),controls:[ctrl('a','基态权重 a',0,1,.01,.5),ctrl('phase','初始相对相位 φ',0,TAU,.01,0,'rad')],duration:TAU/3,
     render(ctx,w,h,t,p){wavePanels(ctx,w,h,t,x=>superposition(x,t,+p.a,+p.phase),{densityMax:4.1});},metrics(t,p){return[{label:'P(E₁)',value:(+p.a).toFixed(2)},{label:'P(E₂)',value:(1-p.a).toFixed(2)},{label:'拍频周期 / τ',value:(TAU/3).toFixed(3)}];}});

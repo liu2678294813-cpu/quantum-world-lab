@@ -1,6 +1,6 @@
 {
   "command": "node --test --test-reporter=tap tests/physics.test.cjs tests/models.test.cjs",
-  "passed": 34,
+  "passed": 35,
   "failed": 0,
   "exitCode": 0,
   "sceneCount": 52,

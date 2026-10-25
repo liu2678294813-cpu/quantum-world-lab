@@ -40,7 +40,7 @@ const sandbox = {
   Math
 };
 vm.createContext(sandbox);
-for (const file of ['scenes-a.js', 'scenes-b.js', 'scenes-c.js', 'scenes-d.js', 'models.js', 'models-more.js', 'lessons.js']) {
+for (const file of ['kit.js', 'scenes-a.js', 'scenes-b.js', 'scenes-c.js', 'scenes-d.js', 'models.js', 'models-more.js', 'lessons.js']) {
   const filename = path.join(root, 'src', file);
   vm.runInContext(fs.readFileSync(filename, 'utf8'), sandbox, { filename });
 }
@@ -90,6 +90,25 @@ test('box eigenstates: normalization, orthogonality, boundaries, time-independen
     for (const x of [.07, .21, .49, .83]) near(A.box(n, x, 0).density, A.box(n, x, 2.91).density, 1e-12);
   }
   near(inner(x => A.box(1, x), x => A.box(2, x), 0, 1), 0, 1e-10, 'box orthogonality');
+});
+
+test('screenshot regression: n=1/n=2 point densities, interval area, and truthful axis labels', () => {
+  near(A.box(1,.5).density,2,1e-12);
+  near(A.box(2,.5).density,0,1e-20);
+  for(const x of [.25,.75])near(A.box(2,x).density,2,1e-12);
+  for(let n=1;n<=6;n++){
+    near(A.boxProbability(n),1,1e-12);near(A.boxProbability(n,0,.5),.5,1e-12);
+    for(const [a,b]of [[0,.25],[.2,.7],[.1,.95]])near(A.boxProbability(n,a,b),integrate(x=>A.box(n,x).density,a,b),2e-8);
+    let heights=0;for(let i=0;i<100;i++)heights+=A.box(n,(i+.5)/100).density;
+    near(heights,100,1e-10);near(heights*.01,1,1e-12);
+  }
+  assert.equal(sandbox.window.QSKit.formatTick(.25,1),'0.25');assert.equal(sandbox.window.QSKit.formatTick(.75,1),'0.75');assert.equal(sandbox.window.QSKit.formatTick(2.25,2.25),'2.25');
+  assert.notEqual(sandbox.window.QSKit.formatTick(.000075,.0001),'0');
+  const labels=[],ctx=contextStub();ctx.fillText=(s,x,y)=>labels.push({s:String(s),x,y});
+  scenes.find(s=>s.id==='stationary').render(ctx,1100,550,0,{n:2,probe:.5});
+  const texts=labels.map(q=>q.s),xTicks=labels.filter(q=>q.x<550&&q.y>500).map(q=>q.s);
+  assert(xTicks.includes('0.25')&&xTicks.includes('0.75'));assert(!xTicks.includes('0.3')&&!xTicks.includes('0.8'));
+  assert(texts.some(s=>s.includes('当前 n=2')));assert(texts.some(s=>s.includes('阴影面积')));
 });
 
 test('superposition: unitary normalization and phase-controlled position probabilities', () => {

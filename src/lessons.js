@@ -64,7 +64,10 @@ L('contact-interaction',[F('未扰的两粒子联合密度',left,'横x₁、纵x
 // Compact, explicitly authored lines keep equations readable beside the plots.
 // Intermediate symbols are defined locally; no automatic TeX splitting is used.
 const E=(id,i,tex)=>lessons[id].figures[i].tex=tex;
-E('stationary',1,T`\operatorname{Re}\psi_n=u_n\cos(n^2\tau)\\ \operatorname{Im}\psi_n=-u_n\sin(n^2\tau)\\ u_n=\sqrt2\sin(n\pi x)`);
+Object.assign(lessons.stationary.figures[0],{title:'当前n本征态的密度与概率面积',axes:'横轴ξ=x/L，纵轴ρξ=L|Ψ|²；均为约化量，整条曲线下的面积为1。',encoding:'金线是密度；粉色竖线与圆点检查ξ*处高度；蓝色阴影面积是P(0≤ξ≤ξ*)。',read:'n=1时中点密度为2，n=2时中点密度为0；两态左半阱概率都为0.5。归一化是积分，不是把离散高度相加，也不是要求每处密度≤1。'});
+E('stationary',0,T`\xi=x/L,\quad \rho_\xi=L|\Psi|^2\\ \rho_\xi=2\sin^2(n\pi\xi)\\ \int_0^1\rho_\xi\,d\xi=1\\ P_{[0,u]}=u-\frac{\sin(2n\pi u)}{2n\pi}`);
+Object.assign(lessons.stationary.figures[1],{axes:'横轴同为ξ=x/L；纵轴为约化波函数ψ=√L Ψ的实部或虚部。',read:'实部与虚部会随全局相位变化，但平方和保持不变。图内标明当前n，避免把n=2的两峰态误认为n=1基态。'});
+E('stationary',1,T`\psi=\sqrt L\,\Psi,\quad \psi_n=u_ne^{-in^2\tau}\\ \operatorname{Re}\psi_n=u_n\cos(n^2\tau)\\ \operatorname{Im}\psi_n=-u_n\sin(n^2\tau)\\ u_n=\sqrt2\sin(n\pi\xi)`);
 E('superposition',0,T`\psi=\sqrt a\,\psi_1+\sqrt{1-a}\,e^{i\phi}\psi_2\\ \rho=a|\psi_1|^2+(1-a)|\psi_2|^2+C\\ C=2\sqrt{a(1-a)}\operatorname{Re}(e^{i\phi}\psi_1^*\psi_2)`);
 E('packet',1,T`\eta=1+\frac{it}{2\sigma_0^2},\quad \xi=x-x_0-k_0t\\ A=(2\pi\sigma_0^2)^{-1/4}\\ S=k_0(x-x_0)-\frac{k_0^2t}{2}\\ \psi=\frac A{\sqrt\eta}\exp\!\left[-\frac{\xi^2}{4\sigma_0^2\eta}+iS\right]`);
 E('tunneling',1,T`j=\operatorname{Im}(\psi^*\partial_x\psi)\\ T=j_{\rm tr}/j_{\rm in},\quad R+T=1\\ T_{E<V_0}=\left[1+\frac{V_0^2\sinh^2(\kappa a)}{4E(V_0-E)}\right]^{-1}\\ T_{E>V_0}=\left[1+\frac{V_0^2\sin^2(qa)}{4E(E-V_0)}\right]^{-1}\\ q=\sqrt{2(E-V_0)}`);

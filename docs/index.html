@@ -98,7 +98,7 @@
 </div>
 <dialog id="guide-dialog"><div class="dialog-header"><h2>从看见，到理解</h2><button class="icon-button close-dialog" aria-label="关闭导览" data-icon="close"></button></div><div class="dialog-body">
   <p class="lead">先辨认图像表示什么，再只改变一个参数。每个实验都由公式实时计算，并在右侧写明模型条件。</p>
-  <div class="principles"><p><b>波函数 ψ</b> 通常为复数。实部和虚部可以变化，测量位置的概率密度是 |ψ|²。</p><p><b>散点云</b> 展示按概率分布采样的位置集合，不是一个电子同时碎成很多点，也不是连续运动轨迹。</p><p><b>颜色和箭头</b> 含义由当前实验的图例决定。蓝、紫等颜色用于区分相位或状态；布洛赫球箭头表示量子态。</p><p><b>定态与演化</b> 定态的全局相位可以转动，而概率密度保持不变。镜头旋转只为展示三维形状。</p><p><b>近似与精确</b> 本图谱使用解析模型、有限维精确模型或明确注明的近似。相似的动画外观不代表相同的物理过程。</p><p><b>章节覆盖</b> 覆盖七章的代表模型，不是全书 289 道习题的逐题模拟；双缝为帮助理解的补充实验。</p></div>
+  <div class="principles"><p><b>概率与密度</b> 离散结果的概率相加为1；连续位置的密度要乘区间宽度后求和，或积分，才得到概率。密度高度可以大于1。归一化针对完整定义域，有限画窗与稳态散射另按各图条件理解。</p><p><b>波函数 ψ</b> 通常为复数。实部和虚部可以变化，测量位置的概率密度是 |ψ|²。</p><p><b>散点云</b> 展示按概率分布采样的位置集合，不是一个电子同时碎成很多点，也不是连续运动轨迹。</p><p><b>颜色和箭头</b> 含义由当前实验的图例决定。蓝、紫等颜色用于区分相位或状态；布洛赫球箭头表示量子态。</p><p><b>定态与演化</b> 定态的全局相位可以转动，而概率密度保持不变。镜头旋转只为展示三维形状。</p><p><b>近似与精确</b> 本图谱使用解析模型、有限维精确模型或明确注明的近似。相似的动画外观不代表相同的物理过程。</p><p><b>章节覆盖</b> 覆盖七章的代表模型，不是全书 289 道习题的逐题模拟；双缝为帮助理解的补充实验。</p></div>
   <div id="guide-chapters"></div>
   <div class="guide-links"><p>设计参考：<a href="https://www.falstad.com/qm1d/" target="_blank" rel="noreferrer">Falstad 的波函数／能级联动</a>、<a href="https://phet.colorado.edu/en/simulations/quantum-wave-interference" target="_blank" rel="noreferrer">PhET 的控制变量实验</a>。本图谱的程序与讲解独立编写。</p><p>离线：下载完整 HTML 后用 Edge 或 Chrome 打开。空格播放／暂停，← → 切换实验，Esc 关闭弹窗。图像可导出 PNG，动画可录制为浏览器支持的视频格式。</p></div>
 </div></dialog>
@@ -120,14 +120,15 @@ function text(ctx,str,x,y,color=colors.muted,size=12,align='left'){ctx.save();ct
 function line(ctx,x1,y1,x2,y2,color=colors.grid,width=1){ctx.save();ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore();}
 function glow(ctx,x,y,r,color=colors.blue,alpha=1){if(![x,y,r,alpha].every(Number.isFinite)||r<=0)return;ctx.save();ctx.globalAlpha=alpha;let g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,color);g.addColorStop(.25,color+'9a');g.addColorStop(1,color+'00');ctx.fillStyle=g;ctx.fillRect(x-r,y-r,r*2,r*2);ctx.restore();}
 function fmt(n){if(!Number.isFinite(n))return '';if(Math.abs(n)<1e-9)return '0';if(Math.abs(n)>=1000)return n.toExponential(1);return String(+n.toFixed(2));}
+function formatTick(value,span=1){if(!Number.isFinite(value))return '';if(value===0||Math.abs(value)<Math.abs(span)*1e-12)return '0';if(Math.abs(value)<1e-3||Math.abs(value)>=1e5)return value.toExponential(2);return String(Number(value.toPrecision(6)));}
 function plot(ctx,o){let {x,y,w,h,xmin,xmax,ymin,ymax,xlabel='',ylabel='',curves=[],title=''}=o;let X=v=>x+(v-xmin)/(xmax-xmin)*w,Y=v=>y+h-(v-ymin)/(ymax-ymin)*h;ctx.save();ctx.lineWidth=1;
- for(let i=0;i<=4;i++){let xx=x+i*w/4,yy=y+i*h/4;line(ctx,xx,y,xx,y+h,colors.grid);line(ctx,x,yy,x+w,yy,colors.grid);text(ctx,fmt(xmin+(xmax-xmin)*i/4),xx,y+h+18,colors.muted,10,'center');text(ctx,fmt(ymax-(ymax-ymin)*i/4),x-9,yy+3,colors.muted,10,'right');}
+ for(let i=0;i<=4;i++){let xx=x+i*w/4,yy=y+i*h/4;line(ctx,xx,y,xx,y+h,colors.grid);line(ctx,x,yy,x+w,yy,colors.grid);text(ctx,formatTick(xmin+(xmax-xmin)*i/4,xmax-xmin),xx,y+h+18,colors.muted,10,'center');text(ctx,formatTick(ymax-(ymax-ymin)*i/4,ymax-ymin),x-9,yy+3,colors.muted,10,'right');}
  if(ymin<0&&ymax>0)line(ctx,x,Y(0),x+w,Y(0),'#43516f');line(ctx,x,y,x,y+h,'#526180');line(ctx,x,y+h,x+w,y+h,'#526180');if(title)text(ctx,title,x,y-20,colors.text,12);if(xlabel)text(ctx,xlabel,x+w,y+h+36,colors.muted,11,'right');if(ylabel)text(ctx,ylabel,x,y-7,colors.muted,11);
  ctx.save();ctx.beginPath();ctx.rect(x,y,w,h);ctx.clip();for(const c of curves){let pts=[];for(let i=0;i<=Math.max(240,Math.floor(w));i++){let xx=xmin+(xmax-xmin)*i/Math.max(240,Math.floor(w)),v=c.fn(xx);pts.push([X(xx),Number.isFinite(v)?Y(v):NaN]);}if(c.fill){ctx.beginPath();ctx.moveTo(x,Y(Math.max(ymin,0)));for(const [xx,yy]of pts)if(Number.isFinite(yy))ctx.lineTo(xx,yy);ctx.lineTo(x+w,Y(Math.max(ymin,0)));ctx.closePath();ctx.fillStyle=typeof c.fill==='string'?c.fill:c.color+'24';ctx.fill();}ctx.beginPath();let pen=false;for(const[xx,yy]of pts){if(!Number.isFinite(yy)){pen=false;continue;}if(!pen)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);pen=true;}ctx.strokeStyle=c.color||colors.blue;ctx.lineWidth=c.width||2;ctx.setLineDash(c.dash||[]);ctx.stroke();}ctx.restore();ctx.restore();return{X,Y};}
 const heatCache=new Map();
 function heatmap(ctx,o){let {x,y,w,h,nx=90,ny=90,fn,max=1,color}=o;nx=Math.round(nx);ny=Math.round(ny);const key=nx+'x'+ny;let c=heatCache.get(key);if(!c){c=document.createElement('canvas');c.width=nx;c.height=ny;heatCache.set(key,c);}let cx=c.getContext('2d'),im=cx.createImageData(nx,ny);const stops=[[9,15,29],[43,43,91],[97,104,190],[118,169,255],[239,199,123]];for(let j=0;j<ny;j++)for(let i=0;i<nx;i++){let q=Math.min(1,Math.max(0,fn(i/(nx-1),j/(ny-1))/max));let s=q*4,k=Math.min(3,Math.floor(s)),f=s-k,idx=4*(j*nx+i);for(let l=0;l<3;l++)im.data[idx+l]=stops[k][l]*(1-f)+stops[k+1][l]*f;im.data[idx+3]=255;}cx.putImageData(im,0,0);ctx.save();ctx.imageSmoothingEnabled=true;ctx.drawImage(c,x,y,w,h);ctx.restore();}
 function project(x,y,z,cx,cy,scale,angle=0){const u=x*Math.cos(angle)-y*Math.sin(angle),v=x*Math.sin(angle)+y*Math.cos(angle);return[cx+scale*(u+.22*v),cy-scale*(z-.32*v),v];}
-window.QSKit={colors,text,plot,line,glow,heatmap,project,fmt};
+window.QSKit={colors,text,plot,line,glow,heatmap,project,fmt,formatTick};
 })();
 
 </script>
@@ -147,6 +148,7 @@ window.QSKit={colors,text,plot,line,glow,heatmap,project,fmt};
   const div=(a,b)=>{const d=abs2(b);return {re:(a.re*b.re+a.im*b.im)/d,im:(a.im*b.re-a.re*b.im)/d};};
   function complete(z){z.density=abs2(z);return z;}
   function box(n,x,t=0){return complete(polar(x<0||x>1?0:SQRT2*Math.sin(n*Math.PI*x),-n*n*t));}
+  function boxProbability(n,a=0,b=1){const F=x=>{const u=clamp(x,0,1);return u-Math.sin(2*n*Math.PI*u)/(2*n*Math.PI);};return F(b)-F(a);}
   function superposition(x,t,a=.5,phase=0){return complete(add(mul(polar(Math.sqrt(a),0),box(1,x,t)),mul(polar(Math.sqrt(1-a),phase),box(2,x,t))));}
   function packet(x,t,sigma=1,k=1.2,x0=-5){
     const q=t/(2*sigma*sigma),u=x-x0-k*t,d=1+q*q;
@@ -188,7 +190,7 @@ window.QSKit={colors,text,plot,line,glow,heatmap,project,fmt};
   function basis(theta,phi,beta){const a=polar(Math.cos(theta/2),0),b=polar(Math.sin(theta/2),phi),c=Math.cos(beta/2),s=Math.sin(beta/2);return {old:[abs2(a),abs2(b)],rotated:[abs2(add(mul({re:c,im:0},a),mul({re:s,im:0},b))),abs2(add(mul({re:-s,im:0},a),mul({re:c,im:0},b)))]};}
   function hydrogenRadial(state,r){if(r<0)return 0;switch(state){case'1s':return 4*r*r*Math.exp(-2*r);case'2s':return r*r*(2-r)**2*Math.exp(-r)/8;case'2pz':return r**4*Math.exp(-r)/24;case'3dz2':return 8*r**6*Math.exp(-2*r/3)/98415;default:return 0;}}
   function hydrogenSpatial(state,x,y,z){const r=Math.hypot(x,y,z);if(r<1e-12)return state==='1s'?1/Math.PI:state==='2s'?1/(8*Math.PI):0;const c=z/r;const angular=state==='2pz'?3*c*c/(4*Math.PI):state==='3dz2'?5*(3*c*c-1)**2/(16*Math.PI):1/(4*Math.PI);return hydrogenRadial(state,r)*angular/(r*r);}
-  window.QSPhysicsA={box,superposition,packet,transmission,barrierWave,oscillator,coherent,uncertainty,basis,hydrogenRadial,hydrogenSpatial};
+  window.QSPhysicsA={box,boxProbability,superposition,packet,transmission,barrierWave,oscillator,coherent,uncertainty,basis,hydrogenRadial,hydrogenSpatial};
 
   function text(ctx,s,x,y,color=C.muted,size=12,align='left'){ctx.save();ctx.fillStyle=color;ctx.font=`${size}px "Segoe UI", "Microsoft YaHei", sans-serif`;ctx.textAlign=align;ctx.textBaseline='middle';ctx.fillText(String(s),x,y);ctx.restore();}
   function line(ctx,x1,y1,x2,y2,color=C.grid,width=1,dash=[]){ctx.save();ctx.strokeStyle=color;ctx.lineWidth=width;ctx.setLineDash(dash);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore();}
@@ -197,11 +199,12 @@ window.QSKit={colors,text,plot,line,glow,heatmap,project,fmt};
   function arrow(ctx,x1,y1,x2,y2,color=C.blue,width=2){line(ctx,x1,y1,x2,y2,color,width);const a=Math.atan2(y2-y1,x2-x1);line(ctx,x2,y2,x2-9*Math.cos(a-.4),y2-9*Math.sin(a-.4),color,width);line(ctx,x2,y2,x2-9*Math.cos(a+.4),y2-9*Math.sin(a+.4),color,width);}
   function panelPair(w,h){return w<620?[{x:9,y:4,w:w-18,h:h*.49-8},{x:9,y:h*.5,w:w-18,h:h*.49-8}]:[{x:12,y:10,w:w*.49-18,h:h-20},{x:w*.5+7,y:10,w:w*.49-18,h:h-20}];}
   function plot(ctx,p){
-    const {x,y,w,h,xmin,xmax,ymin,ymax,title='',xlabel='',ylabel='',curves=[]}=p;
+    const {x,y,w,h,xmin,xmax,ymin,ymax,title='',xlabel='',ylabel='',curves=[],yticks}=p;
     const left=x+46,right=x+w-17,top=y+35,bottom=y+h-42;
     const X=v=>left+(v-xmin)/(xmax-xmin)*(right-left),Y=v=>bottom-(v-ymin)/(ymax-ymin)*(bottom-top);
     text(ctx,title,x+8,y+13,C.text,13);
-    for(let j=0;j<=4;j++){const xx=xmin+(xmax-xmin)*j/4,yy=ymin+(ymax-ymin)*j/4;line(ctx,X(xx),top,X(xx),bottom,C.grid);line(ctx,left,Y(yy),right,Y(yy),C.grid);text(ctx,Math.abs(xx)<1e-9?'0':Number(xx.toFixed(1)),X(xx),bottom+16,C.muted,10,'center');text(ctx,Math.abs(yy)<1e-9?'0':Number(yy.toFixed(Math.max(1,Math.min(6,1-Math.floor(Math.log10(ymax-ymin)))))),left-8,Y(yy),C.muted,10,'right');}
+    for(let j=0;j<=4;j++){const xx=xmin+(xmax-xmin)*j/4;line(ctx,X(xx),top,X(xx),bottom,C.grid);text(ctx,window.QSKit.formatTick(xx,xmax-xmin),X(xx),bottom+16,C.muted,10,'center');}
+    for(const yy of yticks||Array.from({length:5},(_,j)=>ymin+(ymax-ymin)*j/4)){line(ctx,left,Y(yy),right,Y(yy),C.grid);text(ctx,window.QSKit.formatTick(yy,ymax-ymin),left-8,Y(yy),C.muted,10,'right');}
     if(ymin<0&&ymax>0)line(ctx,left,Y(0),right,Y(0),'#4e5872');
     text(ctx,xlabel,(left+right)/2,bottom+34,C.muted,11,'center');text(ctx,ylabel,left,top-10,C.muted,10);
     ctx.save();ctx.beginPath();ctx.rect(left,top,right-left,bottom-top);ctx.clip();
@@ -209,7 +212,7 @@ window.QSKit={colors,text,plot,line,glow,heatmap,project,fmt};
       ctx.strokeStyle=q.color;ctx.lineWidth=q.width||2;ctx.setLineDash(q.dash||[]);ctx.stroke();ctx.setLineDash([]);
     }ctx.restore();return{X,Y,left,right,top,bottom};
   }
-  function wavePanels(ctx,w,h,t,fn,{xmin=0,xmax=1,densityMax=4,ampMax=1.6,leftTitle='概率密度 · |ψ|²',rightTitle='复波函数 · 蓝 Re ψ / 紫 Im ψ'}={}){const [a,b]=panelPair(w,h);const pa=plot(ctx,{...a,xmin,xmax,ymin:0,ymax:densityMax,title:leftTitle,xlabel:'位置 x',curves:[{fn:x=>fn(x).density,color:C.gold,fill:true}]});plot(ctx,{...b,xmin,xmax,ymin:-ampMax,ymax:ampMax,title:rightTitle,xlabel:'位置 x',curves:[{fn:x=>fn(x).re,color:C.blue},{fn:x=>fn(x).im,color:C.purple,dash:[5,4]}]});return pa;}
+  function wavePanels(ctx,w,h,t,fn,{xmin=0,xmax=1,densityMax=4,ampMax=1.6,leftTitle='概率密度 · |ψ|²',rightTitle='复波函数 · 蓝 Re ψ / 紫 Im ψ',densityTicks,densityFill=true,xlabel='位置 x'}={}){const [a,b]=panelPair(w,h);const pa=plot(ctx,{...a,xmin,xmax,ymin:0,ymax:densityMax,yticks:densityTicks,title:leftTitle,xlabel,curves:[{fn:x=>fn(x).density,color:C.gold,fill:densityFill}]});plot(ctx,{...b,xmin,xmax,ymin:-ampMax,ymax:ampMax,title:rightTitle,xlabel,curves:[{fn:x=>fn(x).re,color:C.blue},{fn:x=>fn(x).im,color:C.purple,dash:[5,4]}]});return pa;}
   function seeded(seed){let s=(seed|0)||1;return()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return(s>>>0)/4294967296;};}
   const ctrl=(key,label,min,max,step,value,unit)=>({key,label,min,max,step,value,...(unit?{unit}:{})});
   const select=(key,label,options,value)=>({key,label,options:options.map(x=>typeof x==='string'?{value:x,label:x}:x),value});
@@ -217,8 +220,8 @@ window.QSKit={colors,text,plot,line,glow,heatmap,project,fmt};
   const scenes=[];
   function push(scene){scenes.push(scene);}
 
-  push({id:'stationary',chapter:1,title:'定态：波函数在动，概率不动',subtitle:'无限深势阱 · 能量本征态',description:'看清“定态”的真正含义：复波函数不断转相位，但每处找到粒子的概率保持不变。',formula:'ψₙ(x,τ) = √2 sin(nπx) e⁻ⁱⁿ²τ； ρ = |ψₙ|²',explanation:'墙在 x=0 和 x=1，波函数在两端严格为零。时间只带来一个整体相位，因此实部、虚部会起伏，概率密度不会移动。这里 τ=E₁t/ℏ，长度以阱宽 L 为单位。',observe:'左图金色概率密度保持静止；右图蓝色实部和紫色虚部交替变化。n 增大时，内部节点数变为 n−1。',experiment:'把 n 从 1 调到 4，再暂停并拖动时间。比较节点位置、峰数和概率密度是否变化。',caution:'曲线高度是概率幅或概率密度，不是粒子在空间中的上下位移。定态不意味着粒子静止。',source:source('1–3；30–33','7–9；36–39','学习要点；无限阱相关题组'),controls:[ctrl('n','量子数 n',1,6,1,2)],duration:TAU,
-    render(ctx,w,h,t,p){wavePanels(ctx,w,h,t,x=>box(+p.n,x,t),{densityMax:2.25});},metrics(t,p){return[{label:'能量 E / E₁',value:(p.n*p.n).toFixed(0)},{label:'内部节点',value:String(p.n-1)},{label:'总概率',value:'1.000'}];}});
+  push({id:'stationary',chapter:1,title:'定态：波函数在动，概率不动',subtitle:'无限深势阱 · 本征态与概率面积',description:'先辨认量子数n，再区分“某点的密度高度”与“区间下的概率面积”。拖动检查位置，直接核对密度和积分。',formula:'ξ=x/L；ρξ=L|Ψ|²=2sin²(nπξ)；P[0,ξ*]=ξ*−sin(2nπξ*)/(2nπ)',explanation:'横轴ξ=x/L，纵轴ρξ=L|Ψ|²，二者均已约化。n=1时中点密度为2；n=2时中点是节点、密度为0。归一化要求整条密度曲线下的面积为1，不要求曲线高度小于1，也不能直接把离散高度相加。',observe:'默认n=2有两座峰，峰在ξ=0.25与0.75，高度均为2；ξ=0.5处为节点。蓝色阴影表示从0到检查位置ξ*的概率，其面积可以直接对照下方读数。',experiment:'保持ξ*=0.5，在n=1和n=2之间切换：密度分别是2与0，但左半阱概率都为0.5。再移动ξ*，比较面积和高度怎样分别改变。',caution:'概率密度有量纲；这里画的是无量纲ρξ=L|Ψ|²。单个精确位置在连续分布中的概率为0，有限区间的概率才由积分给出。定态不意味着粒子静止。',source:source('1–3；30–33','7–9；36–39','学习要点；无限阱相关题组'),controls:[ctrl('n','量子数 n',1,6,1,2),ctrl('probe','检查位置 ξ*=x/L',0,1,.005,.5)],duration:TAU,
+    render(ctx,w,h,t,p){const n=+p.n,u=clamp(+(p.probe??.5),0,1),f=x=>box(n,x,t),q=wavePanels(ctx,w,h,t,f,{densityMax:2.25,densityTicks:[0,.5,1,1.5,2],densityFill:false,leftTitle:`密度 ρξ=2sin²(nπξ) · 当前 n=${n}`,rightTitle:`复波函数 · n=${n} · 蓝实部 / 紫虚部`,xlabel:'约化位置 ξ=x/L'});ctx.save();ctx.beginPath();ctx.moveTo(q.X(0),q.Y(0));for(let j=0;j<=200;j++){const x=u*j/200;ctx.lineTo(q.X(x),q.Y(f(x).density));}ctx.lineTo(q.X(u),q.Y(0));ctx.closePath();ctx.fillStyle=C.blue+'30';ctx.fill();ctx.restore();line(ctx,q.X(u),q.top,q.X(u),q.bottom,C.pink,1,[4,4]);dot(ctx,q.X(u),q.Y(f(u).density),4,C.pink);text(ctx,`阴影面积 P(0≤ξ≤${u.toFixed(3)})=${boxProbability(n,0,u).toFixed(4)}`,q.left+7,q.top+15,C.blue,w<620?10:11);},metrics(t,p){const n=+p.n,u=clamp(+(p.probe??.5),0,1),rho=box(n,u).density;return[{label:'当前本征态',value:`n=${n}`},{label:'检查点密度 ρξ',value:(Math.abs(rho)<1e-12?0:rho).toFixed(6)},{label:`P(0≤ξ≤${u.toFixed(3)})`,value:boxProbability(n,0,u).toFixed(6)},{label:'全阱积分 ∫ρξdξ',value:boxProbability(n).toFixed(6)}];}});
 
   push({id:'superposition',chapter:1,title:'叠加态：概率开始流动',subtitle:'两能级拍频 · 相对相位',description:'把两个静止的概率分布叠加，交叉项便让概率在阱内来回重新分配。',formula:'ψ = √a ψ₁ + √(1−a) eⁱφ ψ₂； ΔE = 3E₁',explanation:'两个本征态带有不同的时间相位，因而相对相位随时间演化。概率中出现 2 Re(c₁*c₂ψ₁*ψ₂) 这一干涉项；各能级概率仍为 a 和 1−a。',observe:'金色峰会向左右偏移。改相对相位能改变分布；把 a 调到 0 或 1，运动消失，回到定态。',experiment:'先取 a=0.5，比较 φ=0 和 φ=π；再把 a 调到 1。注意概率运动频率来自能量差。',caution:'图中的概率流动不能直接读作某一粒子的实际轨迹。测能量仍只得到离散的 E₁ 或 E₂。',source:source('30–33','36–39','1.24–1.29：无限阱叠加态'),controls:[ctrl('a','基态权重 a',0,1,.01,.5),ctrl('phase','初始相对相位 φ',0,TAU,.01,0,'rad')],duration:TAU/3,
     render(ctx,w,h,t,p){wavePanels(ctx,w,h,t,x=>superposition(x,t,+p.a,+p.phase),{densityMax:4.1});},metrics(t,p){return[{label:'P(E₁)',value:(+p.a).toFixed(2)},{label:'P(E₂)',value:(1-p.a).toFixed(2)},{label:'拍频周期 / τ',value:(TAU/3).toFixed(3)}];}});
@@ -1043,7 +1046,10 @@ L('contact-interaction',[F('未扰的两粒子联合密度',left,'横x₁、纵x
 // Compact, explicitly authored lines keep equations readable beside the plots.
 // Intermediate symbols are defined locally; no automatic TeX splitting is used.
 const E=(id,i,tex)=>lessons[id].figures[i].tex=tex;
-E('stationary',1,T`\operatorname{Re}\psi_n=u_n\cos(n^2\tau)\\ \operatorname{Im}\psi_n=-u_n\sin(n^2\tau)\\ u_n=\sqrt2\sin(n\pi x)`);
+Object.assign(lessons.stationary.figures[0],{title:'当前n本征态的密度与概率面积',axes:'横轴ξ=x/L，纵轴ρξ=L|Ψ|²；均为约化量，整条曲线下的面积为1。',encoding:'金线是密度；粉色竖线与圆点检查ξ*处高度；蓝色阴影面积是P(0≤ξ≤ξ*)。',read:'n=1时中点密度为2，n=2时中点密度为0；两态左半阱概率都为0.5。归一化是积分，不是把离散高度相加，也不是要求每处密度≤1。'});
+E('stationary',0,T`\xi=x/L,\quad \rho_\xi=L|\Psi|^2\\ \rho_\xi=2\sin^2(n\pi\xi)\\ \int_0^1\rho_\xi\,d\xi=1\\ P_{[0,u]}=u-\frac{\sin(2n\pi u)}{2n\pi}`);
+Object.assign(lessons.stationary.figures[1],{axes:'横轴同为ξ=x/L；纵轴为约化波函数ψ=√L Ψ的实部或虚部。',read:'实部与虚部会随全局相位变化，但平方和保持不变。图内标明当前n，避免把n=2的两峰态误认为n=1基态。'});
+E('stationary',1,T`\psi=\sqrt L\,\Psi,\quad \psi_n=u_ne^{-in^2\tau}\\ \operatorname{Re}\psi_n=u_n\cos(n^2\tau)\\ \operatorname{Im}\psi_n=-u_n\sin(n^2\tau)\\ u_n=\sqrt2\sin(n\pi\xi)`);
 E('superposition',0,T`\psi=\sqrt a\,\psi_1+\sqrt{1-a}\,e^{i\phi}\psi_2\\ \rho=a|\psi_1|^2+(1-a)|\psi_2|^2+C\\ C=2\sqrt{a(1-a)}\operatorname{Re}(e^{i\phi}\psi_1^*\psi_2)`);
 E('packet',1,T`\eta=1+\frac{it}{2\sigma_0^2},\quad \xi=x-x_0-k_0t\\ A=(2\pi\sigma_0^2)^{-1/4}\\ S=k_0(x-x_0)-\frac{k_0^2t}{2}\\ \psi=\frac A{\sqrt\eta}\exp\!\left[-\frac{\xi^2}{4\sigma_0^2\eta}+iS\right]`);
 E('tunneling',1,T`j=\operatorname{Im}(\psi^*\partial_x\psi)\\ T=j_{\rm tr}/j_{\rm in},\quad R+T=1\\ T_{E<V_0}=\left[1+\frac{V_0^2\sinh^2(\kappa a)}{4E(V_0-E)}\right]^{-1}\\ T_{E>V_0}=\left[1+\frac{V_0^2\sin^2(qa)}{4E(E-V_0)}\right]^{-1}\\ q=\sqrt{2(E-V_0)}`);

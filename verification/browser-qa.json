@@ -14,7 +14,7 @@
     {
       "id": "stationary",
       "title": "定态：波函数在动，概率不动",
-      "renderedParameterFrames": 4
+      "renderedParameterFrames": 6
     },
     {
       "id": "superposition",
@@ -274,7 +274,7 @@
   ],
   "consoleErrors": [],
   "exportPngBytes": 1329553,
-  "recordedVideoBytes": 614279,
+  "recordedVideoBytes": 595949,
   "checks": [
     "all chapter tabs",
     "52 scene default render",
