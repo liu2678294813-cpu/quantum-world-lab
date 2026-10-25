@@ -1,0 +1,297 @@
+{
+  "browser": "Chrome headless via Playwright; IAB failed: privileged native pipe bridge is not available; browser-client is not trusted",
+  "offlineFile": true,
+  "viewports": [
+    "1536x1024",
+    "1280x800",
+    "390x844"
+  ],
+  "sceneCount": 52,
+  "panelGuides": 103,
+  "typesetFormulaBlocks": 103,
+  "externalNetworkRequests": [],
+  "stageResults": [
+    {
+      "id": "stationary",
+      "title": "定态：波函数在动，概率不动",
+      "renderedParameterFrames": 4
+    },
+    {
+      "id": "superposition",
+      "title": "叠加态：概率开始流动",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "packet",
+      "title": "自由波包：移动，也会展宽",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "tunneling",
+      "title": "隧穿：能量低于势垒，也能透过",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "oscillator",
+      "title": "谐振子：定态与相干态",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "double-slit",
+      "title": "双缝：一个个落点，积累成干涉",
+      "renderedParameterFrames": 10
+    },
+    {
+      "id": "sudden-force",
+      "title": "突然开场：波包怎样响应外力？",
+      "renderedParameterFrames": 4
+    },
+    {
+      "id": "infinite-well",
+      "title": "无限深势阱：阱宽、能级与波函数",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "finite-well",
+      "title": "有限深势阱：束缚态也会伸到阱外",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "delta-well",
+      "title": "δ 势阱：一个尖点束缚一个态",
+      "renderedParameterFrames": 4
+    },
+    {
+      "id": "harmonic-model",
+      "title": "谐振子：能级、经典禁区与概率密度",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "coupled-oscillators",
+      "title": "耦合振子：正常模与量子关联",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "operator",
+      "title": "算符：作用在波函数上",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "uncertainty",
+      "title": "不确定度：把一端压窄，另一端展开",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "measurement",
+      "title": "测量：概率权重变成实际频数",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "angular-momentum",
+      "title": "角动量：长度与投影不能随意选",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "momentum-kick",
+      "title": "动量冲量：先改相位，再改变运动",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "fourier",
+      "title": "位置与动量：同一个态的两张脸",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "basis",
+      "title": "换一组基，概率分量重新分配",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "phase",
+      "title": "整体相位看不见，相对相位能干涉",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "phase-space",
+      "title": "四分之一周期：让位置与动量互换",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "asymmetric-rotor",
+      "title": "非对称转子：惯量不同，简并怎样解除？",
+      "renderedParameterFrames": 11
+    },
+    {
+      "id": "orbital",
+      "title": "氢原子：电子云，不是行星轨道",
+      "renderedParameterFrames": 10
+    },
+    {
+      "id": "radial",
+      "title": "径向概率：最可能的半径在哪里",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "magnetic",
+      "title": "磁场：简并能级分裂",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "atomic-drive",
+      "title": "照射原子：电场怎样改写电子云？",
+      "renderedParameterFrames": 4
+    },
+    {
+      "id": "hydrogen-model",
+      "title": "氢原子：量子数怎样决定电子云？",
+      "renderedParameterFrames": 19
+    },
+    {
+      "id": "rigid-rotor",
+      "title": "刚性转子：固定键长，量子化的是取向",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "plane-rotor",
+      "title": "平面转子：环上的波函数怎样传播？",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "box3d",
+      "title": "三维无限深方阱：三个方向怎样拼成一个态？",
+      "renderedParameterFrames": 10
+    },
+    {
+      "id": "landau-model",
+      "title": "Landau量子化：磁场怎样约束轨道运动？",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "spherical-well",
+      "title": "球方阱：为什么三维束缚有阈值？",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "flux-ring",
+      "title": "磁通圆环：密度均匀，概率流也能改变",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "perturbation",
+      "title": "微扰：近似什么时候可靠？",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "avoided-crossing",
+      "title": "简并、混合与避免交叉",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "variational",
+      "title": "变分：让试探态找到最低点",
+      "renderedParameterFrames": 4
+    },
+    {
+      "id": "transition",
+      "title": "含时微扰：概率怎样积累？",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "landau-zener",
+      "title": "真的扫过简并点：态会跟上吗？",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "bloch",
+      "title": "自旋态：一支箭头编码一个量子态",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "precession",
+      "title": "磁场中的自旋进动",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "rabi",
+      "title": "Rabi 共振：把自旋翻过来",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "entanglement",
+      "title": "纠缠：一个共同的量子态",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "stern-gerlach",
+      "title": "非均匀磁场把自旋变成空间分束",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "coupled-spins",
+      "title": "双自旋交换：一个自旋怎样影响另一个？",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "spin-orbit",
+      "title": "L·S耦合：轨道与自旋怎样交换投影？",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "exchange",
+      "title": "交换：符号改变，概率不变",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "correlation",
+      "title": "交换关联：同一位置能否同时出现？",
+      "renderedParameterFrames": 7
+    },
+    {
+      "id": "occupation",
+      "title": "占有数：同样的粒子，怎样填能级？",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "ladder",
+      "title": "产生与湮没：态之间的阶梯",
+      "renderedParameterFrames": 8
+    },
+    {
+      "id": "slater",
+      "title": "Slater 行列式与泡利原理",
+      "renderedParameterFrames": 4
+    },
+    {
+      "id": "two-site",
+      "title": "打开双阱之间的隧穿通道",
+      "renderedParameterFrames": 6
+    },
+    {
+      "id": "contact-interaction",
+      "title": "接触相互作用：交换对称性怎样改变能移？",
+      "renderedParameterFrames": 7
+    }
+  ],
+  "consoleErrors": [],
+  "exportPngBytes": 1329553,
+  "recordedVideoBytes": 614279,
+  "checks": [
+    "all chapter tabs",
+    "52 scene default render",
+    "all parameter endpoint and select-option render",
+    "all narrow stage renders",
+    "range input",
+    "time seek",
+    "reset",
+    "PNG download",
+    "real video recording download",
+    "guide dialog and 7 chapters",
+    "tour start and stop",
+    "mobile page overflow",
+    "103 panel explanations and rendered KaTeX formula blocks",
+    "26 model catalog groups and source pages",
+    "289-row CSV export",
+    "dependent quantum-number controls",
+    "no external network requests"
+  ]
+}

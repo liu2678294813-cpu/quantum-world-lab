@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>量子世界 · 交互图谱</title>
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#hydrogen-model" aria-label="量子世界首页"><span>量子世界</span><i></i><small>交互图谱</small></a>
+  <div class="top-actions">
+    <button id="catalog-button" class="quiet" data-icon="flask" title="按原书习题频率浏览全部模型">原书模型谱</button>
+    <button id="guide-button" class="quiet" data-icon="book">学习导览</button>
+    <button id="export-button" class="quiet" data-icon="download">导出画面</button>
+    <button id="record-button" class="quiet" data-icon="video">录制动画</button>
+  </div>
+</header>
+<div class="workspace">
+  <aside class="sidebar" aria-label="章节导航">
+    <nav id="chapters"></nav>
+    <div class="sidebar-bottom">
+      <p>陈鄂生 · 第 1—7 章</p><p id="scene-count"></p>
+      <button id="tour-button" class="tour-button" data-icon="play">开始全章导览</button>
+      <small id="tour-status"></small>
+    </div>
+  </aside>
+  <main class="main">
+    <button class="model-entry" id="catalog-entry"><span><b>先看原书的模型分布</b><small>289 道题 · 26 类模型与结构 · 题号、页码、实验入口</small></span><span>按出现题数浏览 →</span></button>
+    <div class="scene-heading"><div><h1 id="scene-title">波函数，如何成为概率？</h1><p id="scene-description"></p></div><button class="icon-button" id="fullscreen-button" title="实验区全屏" aria-label="实验区全屏" data-icon="expand"></button></div>
+    <div class="tabs" id="experiments" role="tablist" aria-label="本章实验"></div>
+    <section id="operation-strip" class="operation-strip" aria-label="物理操作与响应" hidden><div><b>外界做了什么</b><p id="operation"></p></div><div><b>怎样实现</b><p id="implementation"></p></div><div><b>会观察到什么</b><p id="response"></p></div></section>
+    <div class="lab-grid">
+      <div class="stage-column">
+      <section class="stage-panel" id="stage-panel" aria-label="量子动画实验区">
+        <div class="stage-caption"><span id="stage-subtitle"></span><span class="live-label"><i></i><span id="mode-label">实时演化</span></span></div>
+        <div class="canvas-scroll"><div class="canvas-inner"><canvas id="world" aria-label="实时计算的量子力学图像"></canvas></div></div>
+        <div id="metrics" class="metrics" aria-live="off"></div>
+        <div id="keyframes" class="keyframes" aria-label="关键时刻"></div>
+        <div class="transport">
+          <button id="play-button" class="play-button" title="播放或暂停（空格）" aria-label="暂停" data-icon="pause"></button>
+          <button id="reset-button" class="icon-button" title="重置时间与本实验参数" aria-label="重置实验" data-icon="reset"></button>
+          <span id="time-value" class="time-value"></span>
+          <input id="timeline" type="range" min="0" max="20" step="0.01" value="0" aria-label="演化时间">
+          <select id="speed" aria-label="播放速度"><option value="0.25">0.25 ×</option><option value="0.5">0.5 ×</option><option value="1" selected>1.0 ×</option><option value="2">2.0 ×</option></select>
+          <button id="previous-button" class="icon-button" title="上一个实验" aria-label="上一个实验" data-icon="previous"></button>
+          <button id="next-button" class="icon-button" title="下一个实验" aria-label="下一个实验" data-icon="next"></button>
+        </div>
+        <div class="time-note">采用实验注明的约化单位。末尾从初态重播仅用于演示，不表示物理过程一定周期复归。</div>
+      </section>
+      <section id="figure-notes" class="figure-notes" aria-label="每张图的阅读说明"></section>
+      </div>
+      <aside class="inspector">
+        <section><h2>实验参数</h2><p class="parameter-note">参数定义本次实验；操作实验调参后从初态重新开始。</p><div id="parameters"></div></section>
+        <section><h2>你正在看什么</h2><p id="explanation"></p></section>
+        <section><h2>逐图对照公式</h2><div id="formula" class="formula"></div></section>
+        <details class="limits" open><summary>模型条件与易误解处</summary><p id="caution"></p></details>
+      </aside>
+    </div>
+    <section class="reading-strip">
+      <article><h2><span class="strip-icon" data-icon="observe"></span>观察</h2><p id="observe"></p></article>
+      <article><h2><span class="strip-icon" data-icon="flask"></span>动手试试</h2><p id="experiment"></p></article>
+      <article class="source"><h2><span class="strip-icon" data-icon="book"></span>参考材料</h2><p>陈鄂生《量子力学习题与解答》</p><p id="source-pages"></p><p id="source-topic"></p></article>
+    </section>
+    <footer class="footnote">亮度、颜色、散点和箭头是有明确定义的可视化编码。概率云不等于粒子的运动轨迹。<button id="principles-button">阅读图像约定</button></footer>
+  </main>
+</div>
+<dialog id="guide-dialog"><div class="dialog-header"><h2>从看见，到理解</h2><button class="icon-button close-dialog" aria-label="关闭导览" data-icon="close"></button></div><div class="dialog-body">
+  <p class="lead">先辨认图像表示什么，再只改变一个参数。每个实验都由公式实时计算，并在右侧写明模型条件。</p>
+  <div class="principles"><p><b>波函数 ψ</b> 通常为复数。实部和虚部可以变化，测量位置的概率密度是 |ψ|²。</p><p><b>散点云</b> 展示按概率分布采样的位置集合，不是一个电子同时碎成很多点，也不是连续运动轨迹。</p><p><b>颜色和箭头</b> 含义由当前实验的图例决定。蓝、紫等颜色用于区分相位或状态；布洛赫球箭头表示量子态。</p><p><b>定态与演化</b> 定态的全局相位可以转动，而概率密度保持不变。镜头旋转只为展示三维形状。</p><p><b>近似与精确</b> 本图谱使用解析模型、有限维精确模型或明确注明的近似。相似的动画外观不代表相同的物理过程。</p><p><b>章节覆盖</b> 覆盖七章的代表模型，不是全书 289 道习题的逐题模拟；双缝为帮助理解的补充实验。</p></div>
+  <div id="guide-chapters"></div>
+  <div class="guide-links"><p>设计参考：<a href="https://www.falstad.com/qm1d/" target="_blank" rel="noreferrer">Falstad 的波函数／能级联动</a>、<a href="https://phet.colorado.edu/en/simulations/quantum-wave-interference" target="_blank" rel="noreferrer">PhET 的控制变量实验</a>。本图谱的程序与讲解独立编写。</p><p>离线：下载完整 HTML 后用 Edge 或 Chrome 打开。空格播放／暂停，← → 切换实验，Esc 关闭弹窗。图像可导出 PNG，动画可录制为浏览器支持的视频格式。</p></div>
+</div></dialog>
+<dialog id="record-dialog"><div class="dialog-header"><h2>把实验保存成动画</h2><button class="icon-button close-dialog" aria-label="关闭录制设置" data-icon="close"></button></div><div class="dialog-body"><p>录制 1600 × 1000 的实验画面，带标题、公式、参数和来源。录制时可以调整参数，或开启全章导览。</p><label class="record-duration">录制时长<select id="record-duration"><option value="15">15 秒</option><option value="30" selected>30 秒</option><option value="60">1 分钟</option><option value="180">3 分钟</option><option value="600">10 分钟</option><option value="1200">20 分钟</option><option value="2400">40 分钟（含完整导览）</option></select></label><p class="muted">视频无配音；录制按实际时间进行。请让页面保持在前台。点击顶部“停止录制”可提前保存。格式会按浏览器实际支持选择 WebM 或 MP4。</p><button id="start-record" class="primary" data-icon="video">开始录制并下载</button></div></dialog>
+<dialog id="catalog-dialog"><div class="dialog-header"><h2>小黄书 · 模型谱</h2><button class="icon-button close-dialog" aria-label="关闭模型谱" data-icon="close"></button></div><div class="dialog-body">
+  <p class="lead">先从原书分析模型，再选择实验。</p><div id="catalog-summary" class="catalog-summary"></div>
+  <p class="catalog-method" id="catalog-method"></p>
+  <div class="catalog-controls"><label>查找模型或题号<input type="search" id="catalog-search" placeholder="例如：转子、δ、4.1"></label><label>查看范围<select id="catalog-kind"><option value="all">全部模型与结构</option><option value="physical">物理模型族</option><option value="effective">有效模型</option><option value="kinematic">运动学与算符结构</option></select></label><button id="catalog-download">下载题号对照 CSV</button></div>
+  <p id="catalog-result" class="muted" aria-live="polite"></p><div id="catalog-list"></div>
+  <p class="muted">有实验入口表示本模型族已有代表场景，具体适用范围以实验说明为准；同族中的受碍转子、多电子原子、奇异势等变式不因此获得完整模拟。未制作独立动画的模型保留原书定位与条件说明。</p>
+</div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<canvas id="export-canvas" width="1600" height="1000" hidden></canvas>
+<script src="src/kit.js"></script>
+<script src="src/scenes-a.js"></script>
+<script src="src/scenes-b.js"></script>
+<script src="src/scenes-c.js"></script>
+<script src="src/scenes-d.js"></script>
+<script src="src/models.js"></script>
+<script src="src/models-more.js"></script>
+<script src="src/catalog-data.js"></script>
+<script src="src/lessons.js"></script>
+<script src="vendor/katex/katex.min.js"></script>
+<script src="src/study.js"></script>
+<script src="src/app.js"></script>
+</body></html>

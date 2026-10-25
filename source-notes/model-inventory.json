@@ -1,0 +1,4035 @@
+{
+  "scope": "原书第1–7章正文习题；不含第8章和书末历年试卷",
+  "unit": "每道编号题；同题同模型只计1次，复合题可计入多个模型族",
+  "totalQuestions": 289,
+  "perChapter": [
+    48,
+    48,
+    20,
+    36,
+    54,
+    56,
+    27
+  ],
+  "namedModelQuestionCount": 236,
+  "generalOrKinematicQuestionCount": 53,
+  "method": "题干语义人工分类，题号与当前PDF逐一核对；既有题型表仅作索引，不使用关键词出现次数推导频率",
+  "sourcePDF": "陈鄂生《量子力学习题与解答》用户提供PDF（原书不随项目发布）",
+  "pdfSHA256": "fe84dc632931ffcd9b894fd7aae5d65a105c4ab7113266b61bcab805810144ab",
+  "models": [
+    {
+      "id": "oscillator",
+      "name": "谐振子、耦合振子与非谐变式",
+      "kind": "physical",
+      "count": 54,
+      "questionIds": [
+        "1.7",
+        "1.10",
+        "1.14",
+        "1.19",
+        "1.20",
+        "1.32",
+        "1.33",
+        "1.34",
+        "1.35",
+        "1.45",
+        "2.20",
+        "2.22",
+        "2.23",
+        "2.25",
+        "2.44",
+        "2.45",
+        "2.46",
+        "2.47",
+        "3.3",
+        "3.20",
+        "4.34",
+        "4.35",
+        "5.1",
+        "5.6",
+        "5.7",
+        "5.10",
+        "5.11",
+        "5.13",
+        "5.21",
+        "5.22",
+        "5.27",
+        "5.28",
+        "5.29",
+        "5.30",
+        "5.32",
+        "5.39",
+        "5.42",
+        "5.43",
+        "5.48",
+        "5.52",
+        "5.53",
+        "6.55",
+        "7.2",
+        "7.4",
+        "7.5",
+        "7.8",
+        "7.9",
+        "7.16",
+        "7.17",
+        "7.18",
+        "7.19",
+        "7.20",
+        "7.25",
+        "7.26"
+      ],
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "scenes": [
+        "harmonic-model",
+        "oscillator",
+        "coupled-oscillators",
+        "phase-space",
+        "sudden-force",
+        "variational"
+      ],
+      "note": "合并一维、多维、耦合、含非谐修正、半谐振子及数态变式；不是把这些势全当作同一个精确谐振子。5.43是纯四次势；5.44仅借谐振子波函数作试探，实际是δ势，不计入本族。"
+    },
+    {
+      "id": "single-spin",
+      "name": "单自旋与磁场中的自旋",
+      "kind": "physical",
+      "count": 41,
+      "questionIds": [
+        "6.4",
+        "6.5",
+        "6.6",
+        "6.7",
+        "6.8",
+        "6.9",
+        "6.10",
+        "6.11",
+        "6.12",
+        "6.13",
+        "6.14",
+        "6.15",
+        "6.16",
+        "6.18",
+        "6.19",
+        "6.25",
+        "6.26",
+        "6.27",
+        "6.28",
+        "6.29",
+        "6.31",
+        "6.32",
+        "6.36",
+        "6.39",
+        "6.40",
+        "6.41",
+        "6.42",
+        "6.43",
+        "6.44",
+        "6.45",
+        "6.46",
+        "6.47",
+        "6.48",
+        "6.49",
+        "6.50",
+        "6.51",
+        "6.52",
+        "6.53",
+        "6.54",
+        "6.55",
+        "6.56"
+      ],
+      "chapters": [
+        6
+      ],
+      "scenes": [
+        "bloch",
+        "precession",
+        "rabi",
+        "stern-gerlach",
+        "spin-orbit"
+      ],
+      "note": "包括自旋测量、泡利态空间、静场、旋转场、自旋-空间耦合和自旋1变式；不把两个/三个自旋的题目混成单自旋。"
+    },
+    {
+      "id": "coulomb",
+      "name": "氢样与库仑束缚体系",
+      "kind": "physical",
+      "count": 33,
+      "questionIds": [
+        "1.8",
+        "1.9",
+        "4.4",
+        "4.9",
+        "4.10",
+        "4.13",
+        "4.14",
+        "4.15",
+        "4.17",
+        "4.18",
+        "4.20",
+        "4.26",
+        "4.31",
+        "4.33",
+        "5.4",
+        "5.12",
+        "5.14",
+        "5.15",
+        "5.26",
+        "5.36",
+        "5.47",
+        "5.49",
+        "5.50",
+        "5.51",
+        "6.1",
+        "6.2",
+        "6.3",
+        "6.16",
+        "6.17",
+        "6.29",
+        "6.34",
+        "6.50",
+        "7.21"
+      ],
+      "chapters": [
+        1,
+        4,
+        5,
+        6,
+        7
+      ],
+      "scenes": [
+        "hydrogen-model",
+        "orbital",
+        "radial",
+        "atomic-drive",
+        "magnetic",
+        "coupled-spins"
+      ],
+      "note": "区分三维氢/类氢、一维/半轴库仑、电子偶素与含自旋两体库仑通道。4.31含附加1/r²项；不是标准纯氢势。"
+    },
+    {
+      "id": "hard-box",
+      "name": "硬壁盒、无限深方阱及填充",
+      "kind": "physical",
+      "count": 25,
+      "questionIds": [
+        "1.3",
+        "1.6",
+        "1.18",
+        "1.21",
+        "1.22",
+        "1.23",
+        "1.24",
+        "1.25",
+        "1.26",
+        "1.28",
+        "1.29",
+        "1.30",
+        "1.44",
+        "2.26",
+        "5.5",
+        "5.9",
+        "5.24",
+        "5.25",
+        "6.48",
+        "7.3",
+        "7.7",
+        "7.10",
+        "7.22",
+        "7.23",
+        "7.24"
+      ],
+      "chapters": [
+        1,
+        2,
+        5,
+        6,
+        7
+      ],
+      "scenes": [
+        "infinite-well",
+        "stationary",
+        "superposition",
+        "box3d",
+        "occupation"
+      ],
+      "note": "合并一/二/三维矩形硬壁盒；圆弧有路障的1.18兼有环模型。球形/圆筒硬壁另外计数，不混为立方盒。"
+    },
+    {
+      "id": "multi-spin",
+      "name": "双自旋、三自旋与交换耦合",
+      "kind": "physical",
+      "count": 24,
+      "questionIds": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "6.17",
+        "6.20",
+        "6.21",
+        "6.22",
+        "6.23",
+        "6.24",
+        "6.30",
+        "6.33",
+        "6.34",
+        "6.35",
+        "6.37",
+        "6.38",
+        "7.2",
+        "7.3",
+        "7.5",
+        "7.8",
+        "7.9",
+        "7.21",
+        "7.22",
+        "7.23",
+        "7.24"
+      ],
+      "chapters": [
+        6,
+        7
+      ],
+      "scenes": [
+        "coupled-spins",
+        "entanglement",
+        "exchange",
+        "correlation",
+        "slater"
+      ],
+      "note": "包含总自旋合成、单态/三重态、Heisenberg/各向异性交换以及空间-自旋配对；多粒子统计与交换哈密顿量是两件事。"
+    },
+    {
+      "id": "delta",
+      "name": "δ 点作用、δ 球壳与接触相互作用",
+      "kind": "physical",
+      "count": 16,
+      "questionIds": [
+        "1.2",
+        "1.5",
+        "1.6",
+        "1.7",
+        "1.15",
+        "1.36",
+        "1.41",
+        "1.43",
+        "3.1",
+        "3.2",
+        "4.2",
+        "5.44",
+        "6.1",
+        "6.56",
+        "7.7",
+        "7.24"
+      ],
+      "chapters": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "scenes": [
+        "delta-well",
+        "finite-well",
+        "tunneling",
+        "correlation",
+        "contact-interaction"
+      ],
+      "note": "区别单点外势与粒子间δ接触作用、三维球壳及自旋翻转δ矩阵；这些只共享局域匹配结构，不是同一数值模型。"
+    },
+    {
+      "id": "identical",
+      "name": "全同少粒子与壳层填充",
+      "kind": "physical",
+      "count": 15,
+      "questionIds": [
+        "7.1",
+        "7.2",
+        "7.3",
+        "7.4",
+        "7.5",
+        "7.6",
+        "7.7",
+        "7.8",
+        "7.9",
+        "7.10",
+        "7.21",
+        "7.22",
+        "7.23",
+        "7.24",
+        "7.26"
+      ],
+      "chapters": [
+        7
+      ],
+      "scenes": [
+        "exchange",
+        "correlation",
+        "occupation",
+        "slater",
+        "two-site"
+      ],
+      "note": "第一量子化中的玻色/费米对称化、简并和填充；其中7.6是改变电子统计性的反事实原子模型，不当成真实元素。"
+    },
+    {
+      "id": "rotor",
+      "name": "圆环、转子、受碍转动与陀螺",
+      "kind": "physical",
+      "count": 12,
+      "questionIds": [
+        "1.15",
+        "1.18",
+        "3.19",
+        "4.5",
+        "4.19",
+        "4.35",
+        "5.16",
+        "5.17",
+        "5.18",
+        "5.19",
+        "5.30",
+        "5.31"
+      ],
+      "chapters": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "scenes": [
+        "plane-rotor",
+        "rigid-rotor",
+        "asymmetric-rotor"
+      ],
+      "note": "细分平面/空间转子、非对称转子、偶极受碍转动、带磁通圆环、双珠圆环与小角单摆；二维和三维能谱不能互换。"
+    },
+    {
+      "id": "orbital-field",
+      "name": "轨道外磁场、Landau与磁通圆环",
+      "kind": "physical",
+      "count": 9,
+      "questionIds": [
+        "4.5",
+        "4.6",
+        "4.7",
+        "4.8",
+        "4.27",
+        "5.15",
+        "5.26",
+        "6.7",
+        "6.50"
+      ],
+      "chapters": [
+        4,
+        5,
+        6
+      ],
+      "scenes": [
+        "landau-model",
+        "magnetic",
+        "flux-ring"
+      ],
+      "note": "只统计题干真正含轨道最小耦合/磁场轨道修正的题；单纯自旋Zeeman不计入这里。"
+    },
+    {
+      "id": "step-barrier",
+      "name": "势阶、矩形势垒与自旋通道散射",
+      "kind": "physical",
+      "count": 9,
+      "questionIds": [
+        "1.5",
+        "1.36",
+        "1.37",
+        "1.38",
+        "1.39",
+        "1.40",
+        "1.41",
+        "6.42",
+        "6.56"
+      ],
+      "chapters": [
+        1,
+        6
+      ],
+      "scenes": [
+        "tunneling",
+        "delta-scattering",
+        "spin-filter"
+      ],
+      "note": "题目粒子数统计仍按题计，不按能区分问拆分；δ散射与势阶叠加保留复合标签。"
+    },
+    {
+      "id": "free-packet",
+      "name": "自由粒子与波包传播",
+      "kind": "physical",
+      "count": 7,
+      "questionIds": [
+        "1.29",
+        "2.17",
+        "2.21",
+        "2.35",
+        "3.6",
+        "4.10",
+        "6.36"
+      ],
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "scenes": [
+        "packet",
+        "fourier",
+        "momentum-kick"
+      ],
+      "note": "含释放后自由传播、自由粒子球波、孔径估算和二维自由电子基底；不能把所有傅里叶变换题都算成自由粒子。"
+    },
+    {
+      "id": "spherical-boundary",
+      "name": "球形硬壁、球壳与径向束缚",
+      "kind": "physical",
+      "count": 6,
+      "questionIds": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.11",
+        "4.12",
+        "4.29"
+      ],
+      "chapters": [
+        4
+      ],
+      "scenes": [
+        "spherical-well"
+      ],
+      "note": "径向变量u=rR必须满足u(0)=0；三维球阱的阈值与一维偶态“再浅也束缚”不同。"
+    },
+    {
+      "id": "finite-square",
+      "name": "有限深方阱、半无限阱与球方阱",
+      "kind": "physical",
+      "count": 5,
+      "questionIds": [
+        "1.1",
+        "1.4",
+        "1.13",
+        "4.1",
+        "4.29"
+      ],
+      "chapters": [
+        1,
+        4
+      ],
+      "scenes": [
+        "finite-well",
+        "spherical-well"
+      ],
+      "note": "普通有限深/半壁阱和三维球阱。含δ但外区不变的1.43单列δ模型，不因旧标题含“有限深”而误计。"
+    },
+    {
+      "id": "inverse-power",
+      "name": "反幂势与奇异势稳定性",
+      "kind": "physical",
+      "count": 5,
+      "questionIds": [
+        "1.10",
+        "1.47",
+        "4.21",
+        "4.28",
+        "4.31"
+      ],
+      "chapters": [
+        1,
+        4
+      ],
+      "scenes": [
+        "hydrogen-model"
+      ],
+      "note": "含1/x²、r^(-s)、Kratzer势；需要定义域/边界或短程正则化，不用普通光滑势动画冒充塌缩过程。"
+    },
+    {
+      "id": "linear-force",
+      "name": "匀力、线性势与量子弹跳球",
+      "kind": "physical",
+      "count": 5,
+      "questionIds": [
+        "1.17",
+        "3.4",
+        "3.5",
+        "5.40",
+        "5.41"
+      ],
+      "chapters": [
+        1,
+        3,
+        5
+      ],
+      "scenes": [
+        "uniform-force",
+        "momentum-kick",
+        "sudden-force"
+      ],
+      "note": "无边界恒力与半轴硬壁线性势分开解释；后者的谱是Airy零点，不是自由波包。"
+    },
+    {
+      "id": "spin-orbit",
+      "name": "自旋-轨道结构与原子磁矩",
+      "kind": "physical",
+      "count": 5,
+      "questionIds": [
+        "6.16",
+        "6.36",
+        "6.45",
+        "6.53",
+        "6.55"
+      ],
+      "chapters": [
+        6
+      ],
+      "scenes": [
+        "spin-orbit",
+        "hydrogen-model",
+        "bloch"
+      ],
+      "note": "包括L·S能量、Rashba型动量锁定、Landé磁矩和σ·L的运动学；6.50明确忽略LS作用，不在此计数。"
+    },
+    {
+      "id": "inverse-designed",
+      "name": "给定波函数反推的自定义势",
+      "kind": "physical",
+      "count": 3,
+      "questionIds": [
+        "1.11",
+        "1.12",
+        "1.14"
+      ],
+      "chapters": [
+        1
+      ],
+      "scenes": [
+        "harmonic-model"
+      ],
+      "note": "依ψ″/ψ重建势；含库仑/反幂结构或有界区间的有理势。1.14可重建到谐振子型，不能仅凭旧题意标签把所有题都算成方阱。"
+    },
+    {
+      "id": "atomic-many",
+      "name": "多电子原子的价电子与统计变式",
+      "kind": "physical",
+      "count": 2,
+      "questionIds": [
+        "5.23",
+        "7.6"
+      ],
+      "chapters": [
+        5,
+        7
+      ],
+      "scenes": [
+        "hydrogen-model",
+        "occupation"
+      ],
+      "note": "硼2p价电子简并微扰与反事实原子统计题；氢原子图只能演示角向结构，未模拟多电子屏蔽。"
+    },
+    {
+      "id": "exponential",
+      "name": "指数吸引势与氘核变式",
+      "kind": "physical",
+      "count": 2,
+      "questionIds": [
+        "4.32",
+        "5.45"
+      ],
+      "chapters": [
+        4,
+        5
+      ],
+      "scenes": [],
+      "note": "V=−V₀exp(−r/a)，依靠径向边界和变分判断束缚。"
+    },
+    {
+      "id": "logarithmic",
+      "name": "对数中心势",
+      "kind": "physical",
+      "count": 2,
+      "questionIds": [
+        "4.23",
+        "4.24"
+      ],
+      "chapters": [
+        4
+      ],
+      "scenes": [],
+      "note": "V=c ln(r/r₀)，用于维里定理与质量尺度；不当作库仑势。"
+    },
+    {
+      "id": "absorbing",
+      "name": "常虚势与吸收模型",
+      "kind": "physical",
+      "count": 1,
+      "questionIds": [
+        "1.42"
+      ],
+      "chapters": [
+        1
+      ],
+      "scenes": [],
+      "note": "非厄米有效势导致概率流损耗；不能要求普通闭合系统的R+T=1。"
+    },
+    {
+      "id": "cylinder",
+      "name": "无限长硬壁圆筒",
+      "kind": "physical",
+      "count": 1,
+      "questionIds": [
+        "4.36"
+      ],
+      "chapters": [
+        4
+      ],
+      "scenes": [],
+      "note": "横向Bessel零点离散，轴向动量连续。"
+    },
+    {
+      "id": "morse",
+      "name": "Morse 分子振动势",
+      "kind": "physical",
+      "count": 1,
+      "questionIds": [
+        "4.30"
+      ],
+      "chapters": [
+        4
+      ],
+      "scenes": [],
+      "note": "有限束缚能级、非等间距和解离；原书讨论l=0径向模型。"
+    },
+    {
+      "id": "angular-space",
+      "name": "角动量态空间与矩阵",
+      "kind": "kinematic",
+      "count": 21,
+      "questionIds": [
+        "1.46",
+        "2.9",
+        "2.12",
+        "2.14",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.31",
+        "2.32",
+        "2.37",
+        "3.10",
+        "3.11",
+        "3.12",
+        "3.13",
+        "3.14",
+        "3.15",
+        "3.16",
+        "3.17",
+        "5.33",
+        "5.34",
+        "7.27"
+      ],
+      "chapters": [
+        1,
+        2,
+        3,
+        5,
+        7
+      ],
+      "scenes": [
+        "angular-momentum",
+        "rigid-rotor",
+        "asymmetric-rotor",
+        "bloch"
+      ],
+      "note": "这是运动学结构，单独列出而不称为一种指定势场；同一结构可用于转子、原子和自旋。"
+    },
+    {
+      "id": "fock-modes",
+      "name": "玻色/费米模式与二次量子化",
+      "kind": "effective",
+      "count": 16,
+      "questionIds": [
+        "2.44",
+        "2.45",
+        "2.46",
+        "2.47",
+        "7.11",
+        "7.12",
+        "7.13",
+        "7.14",
+        "7.15",
+        "7.16",
+        "7.17",
+        "7.18",
+        "7.19",
+        "7.20",
+        "7.25",
+        "7.27"
+      ],
+      "chapters": [
+        2,
+        7
+      ],
+      "scenes": [
+        "ladder",
+        "two-site",
+        "phase-space",
+        "coupled-oscillators"
+      ],
+      "note": "模式标签不自动等于空间轨迹；含双模混合、配对、位移、压缩和Schwinger角动量表示。"
+    },
+    {
+      "id": "two-level",
+      "name": "有限二/三能级有效体系",
+      "kind": "effective",
+      "count": 16,
+      "questionIds": [
+        "2.29",
+        "2.41",
+        "2.43",
+        "3.7",
+        "3.8",
+        "3.9",
+        "3.18",
+        "5.2",
+        "5.3",
+        "5.8",
+        "5.20",
+        "5.35",
+        "5.37",
+        "5.38",
+        "5.52",
+        "6.25"
+      ],
+      "chapters": [
+        2,
+        3,
+        5,
+        6
+      ],
+      "scenes": [
+        "basis",
+        "avoided-crossing",
+        "transition",
+        "landau-zener"
+      ],
+      "note": "只统计这些显式有限维模型；没有再把所有自旋题机械重复加入。含中微子味振荡、中子-反中子混合及抽象矩阵。"
+    }
+  ],
+  "questions": [
+    {
+      "id": "1.1",
+      "chapter": 1,
+      "printed": 4,
+      "pdf": 10,
+      "models": [
+        "finite-square"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.2",
+      "chapter": 1,
+      "printed": 6,
+      "pdf": 12,
+      "models": [
+        "delta"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.3",
+      "chapter": 1,
+      "printed": 7,
+      "pdf": 13,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.4",
+      "chapter": 1,
+      "printed": 8,
+      "pdf": 14,
+      "models": [
+        "finite-square"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.5",
+      "chapter": 1,
+      "printed": 9,
+      "pdf": 15,
+      "models": [
+        "delta",
+        "step-barrier"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.6",
+      "chapter": 1,
+      "printed": 11,
+      "pdf": 17,
+      "models": [
+        "hard-box",
+        "delta"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.7",
+      "chapter": 1,
+      "printed": 13,
+      "pdf": 19,
+      "models": [
+        "oscillator",
+        "delta"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.8",
+      "chapter": 1,
+      "printed": 14,
+      "pdf": 20,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.9",
+      "chapter": 1,
+      "printed": 15,
+      "pdf": 21,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.10",
+      "chapter": 1,
+      "printed": 16,
+      "pdf": 22,
+      "models": [
+        "oscillator",
+        "inverse-power"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.11",
+      "chapter": 1,
+      "printed": 19,
+      "pdf": 25,
+      "models": [
+        "inverse-designed"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.12",
+      "chapter": 1,
+      "printed": 19,
+      "pdf": 25,
+      "models": [
+        "inverse-designed"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.13",
+      "chapter": 1,
+      "printed": 20,
+      "pdf": 26,
+      "models": [
+        "finite-square"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.14",
+      "chapter": 1,
+      "printed": 20,
+      "pdf": 26,
+      "models": [
+        "oscillator",
+        "inverse-designed"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.15",
+      "chapter": 1,
+      "printed": 21,
+      "pdf": 27,
+      "models": [
+        "delta",
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.16",
+      "chapter": 1,
+      "printed": 23,
+      "pdf": 29,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "1.17",
+      "chapter": 1,
+      "printed": 24,
+      "pdf": 30,
+      "models": [
+        "linear-force"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.18",
+      "chapter": 1,
+      "printed": 25,
+      "pdf": 31,
+      "models": [
+        "hard-box",
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.19",
+      "chapter": 1,
+      "printed": 27,
+      "pdf": 33,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.20",
+      "chapter": 1,
+      "printed": 28,
+      "pdf": 34,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.21",
+      "chapter": 1,
+      "printed": 29,
+      "pdf": 35,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.22",
+      "chapter": 1,
+      "printed": 29,
+      "pdf": 35,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.23",
+      "chapter": 1,
+      "printed": 29,
+      "pdf": 35,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.24",
+      "chapter": 1,
+      "printed": 30,
+      "pdf": 36,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.25",
+      "chapter": 1,
+      "printed": 30,
+      "pdf": 36,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.26",
+      "chapter": 1,
+      "printed": 31,
+      "pdf": 37,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.27",
+      "chapter": 1,
+      "printed": 32,
+      "pdf": 38,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "1.28",
+      "chapter": 1,
+      "printed": 33,
+      "pdf": 39,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.29",
+      "chapter": 1,
+      "printed": 33,
+      "pdf": 39,
+      "models": [
+        "hard-box",
+        "free-packet"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.30",
+      "chapter": 1,
+      "printed": 34,
+      "pdf": 40,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.31",
+      "chapter": 1,
+      "printed": 35,
+      "pdf": 41,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "1.32",
+      "chapter": 1,
+      "printed": 35,
+      "pdf": 41,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.33",
+      "chapter": 1,
+      "printed": 36,
+      "pdf": 42,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.34",
+      "chapter": 1,
+      "printed": 37,
+      "pdf": 43,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.35",
+      "chapter": 1,
+      "printed": 38,
+      "pdf": 44,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.36",
+      "chapter": 1,
+      "printed": 39,
+      "pdf": 45,
+      "models": [
+        "delta",
+        "step-barrier"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.37",
+      "chapter": 1,
+      "printed": 40,
+      "pdf": 46,
+      "models": [
+        "step-barrier"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.38",
+      "chapter": 1,
+      "printed": 41,
+      "pdf": 47,
+      "models": [
+        "step-barrier"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.39",
+      "chapter": 1,
+      "printed": 42,
+      "pdf": 48,
+      "models": [
+        "step-barrier"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.40",
+      "chapter": 1,
+      "printed": 43,
+      "pdf": 49,
+      "models": [
+        "step-barrier"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.41",
+      "chapter": 1,
+      "printed": 44,
+      "pdf": 50,
+      "models": [
+        "delta",
+        "step-barrier"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.42",
+      "chapter": 1,
+      "printed": 46,
+      "pdf": 52,
+      "models": [
+        "absorbing"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.43",
+      "chapter": 1,
+      "printed": 47,
+      "pdf": 53,
+      "models": [
+        "delta"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.44",
+      "chapter": 1,
+      "printed": 49,
+      "pdf": 55,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.45",
+      "chapter": 1,
+      "printed": 50,
+      "pdf": 56,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.46",
+      "chapter": 1,
+      "printed": 52,
+      "pdf": 58,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "1.47",
+      "chapter": 1,
+      "printed": 52,
+      "pdf": 58,
+      "models": [
+        "inverse-power"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "1.48",
+      "chapter": 1,
+      "printed": 53,
+      "pdf": 59,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.1",
+      "chapter": 2,
+      "printed": 58,
+      "pdf": 64,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.2",
+      "chapter": 2,
+      "printed": 59,
+      "pdf": 65,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.3",
+      "chapter": 2,
+      "printed": 59,
+      "pdf": 65,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.4",
+      "chapter": 2,
+      "printed": 60,
+      "pdf": 66,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.5",
+      "chapter": 2,
+      "printed": 61,
+      "pdf": 67,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.6",
+      "chapter": 2,
+      "printed": 61,
+      "pdf": 67,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.7",
+      "chapter": 2,
+      "printed": 63,
+      "pdf": 69,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.8",
+      "chapter": 2,
+      "printed": 63,
+      "pdf": 69,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.9",
+      "chapter": 2,
+      "printed": 64,
+      "pdf": 70,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.10",
+      "chapter": 2,
+      "printed": 65,
+      "pdf": 71,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.11",
+      "chapter": 2,
+      "printed": 66,
+      "pdf": 72,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.12",
+      "chapter": 2,
+      "printed": 67,
+      "pdf": 73,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.13",
+      "chapter": 2,
+      "printed": 69,
+      "pdf": 75,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.14",
+      "chapter": 2,
+      "printed": 70,
+      "pdf": 76,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.15",
+      "chapter": 2,
+      "printed": 71,
+      "pdf": 77,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.16",
+      "chapter": 2,
+      "printed": 72,
+      "pdf": 78,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.17",
+      "chapter": 2,
+      "printed": 72,
+      "pdf": 78,
+      "models": [
+        "free-packet",
+        "angular-space"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.18",
+      "chapter": 2,
+      "printed": 75,
+      "pdf": 81,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.19",
+      "chapter": 2,
+      "printed": 75,
+      "pdf": 81,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.20",
+      "chapter": 2,
+      "printed": 76,
+      "pdf": 82,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.21",
+      "chapter": 2,
+      "printed": 77,
+      "pdf": 83,
+      "models": [
+        "free-packet"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.22",
+      "chapter": 2,
+      "printed": 81,
+      "pdf": 87,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.23",
+      "chapter": 2,
+      "printed": 82,
+      "pdf": 88,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.24",
+      "chapter": 2,
+      "printed": 84,
+      "pdf": 90,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.25",
+      "chapter": 2,
+      "printed": 85,
+      "pdf": 91,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.26",
+      "chapter": 2,
+      "printed": 86,
+      "pdf": 92,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.27",
+      "chapter": 2,
+      "printed": 87,
+      "pdf": 93,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.28",
+      "chapter": 2,
+      "printed": 87,
+      "pdf": 93,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.29",
+      "chapter": 2,
+      "printed": 88,
+      "pdf": 94,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.30",
+      "chapter": 2,
+      "printed": 90,
+      "pdf": 96,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.31",
+      "chapter": 2,
+      "printed": 91,
+      "pdf": 97,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.32",
+      "chapter": 2,
+      "printed": 91,
+      "pdf": 97,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.33",
+      "chapter": 2,
+      "printed": 92,
+      "pdf": 98,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.34",
+      "chapter": 2,
+      "printed": 93,
+      "pdf": 99,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.35",
+      "chapter": 2,
+      "printed": 94,
+      "pdf": 100,
+      "models": [
+        "free-packet"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.36",
+      "chapter": 2,
+      "printed": 94,
+      "pdf": 100,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.37",
+      "chapter": 2,
+      "printed": 95,
+      "pdf": 101,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.38",
+      "chapter": 2,
+      "printed": 95,
+      "pdf": 101,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.39",
+      "chapter": 2,
+      "printed": 96,
+      "pdf": 102,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.40",
+      "chapter": 2,
+      "printed": 96,
+      "pdf": 102,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.41",
+      "chapter": 2,
+      "printed": 97,
+      "pdf": 103,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.42",
+      "chapter": 2,
+      "printed": 97,
+      "pdf": 103,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "2.43",
+      "chapter": 2,
+      "printed": 100,
+      "pdf": 106,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.44",
+      "chapter": 2,
+      "printed": 101,
+      "pdf": 107,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.45",
+      "chapter": 2,
+      "printed": 103,
+      "pdf": 109,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.46",
+      "chapter": 2,
+      "printed": 104,
+      "pdf": 110,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.47",
+      "chapter": 2,
+      "printed": 106,
+      "pdf": 112,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "2.48",
+      "chapter": 2,
+      "printed": 107,
+      "pdf": 113,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "3.1",
+      "chapter": 3,
+      "printed": 111,
+      "pdf": 117,
+      "models": [
+        "delta"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.2",
+      "chapter": 3,
+      "printed": 112,
+      "pdf": 118,
+      "models": [
+        "delta"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.3",
+      "chapter": 3,
+      "printed": 113,
+      "pdf": 119,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.4",
+      "chapter": 3,
+      "printed": 113,
+      "pdf": 119,
+      "models": [
+        "linear-force"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.5",
+      "chapter": 3,
+      "printed": 114,
+      "pdf": 120,
+      "models": [
+        "linear-force"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.6",
+      "chapter": 3,
+      "printed": 114,
+      "pdf": 120,
+      "models": [
+        "free-packet"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.7",
+      "chapter": 3,
+      "printed": 115,
+      "pdf": 121,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.8",
+      "chapter": 3,
+      "printed": 117,
+      "pdf": 123,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.9",
+      "chapter": 3,
+      "printed": 118,
+      "pdf": 124,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.10",
+      "chapter": 3,
+      "printed": 119,
+      "pdf": 125,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "3.11",
+      "chapter": 3,
+      "printed": 120,
+      "pdf": 126,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "3.12",
+      "chapter": 3,
+      "printed": 121,
+      "pdf": 127,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "3.13",
+      "chapter": 3,
+      "printed": 122,
+      "pdf": 128,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "3.14",
+      "chapter": 3,
+      "printed": 123,
+      "pdf": 129,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "3.15",
+      "chapter": 3,
+      "printed": 124,
+      "pdf": 130,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "3.16",
+      "chapter": 3,
+      "printed": 127,
+      "pdf": 133,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "3.17",
+      "chapter": 3,
+      "printed": 128,
+      "pdf": 134,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "3.18",
+      "chapter": 3,
+      "printed": 129,
+      "pdf": 135,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.19",
+      "chapter": 3,
+      "printed": 130,
+      "pdf": 136,
+      "models": [
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "3.20",
+      "chapter": 3,
+      "printed": 131,
+      "pdf": 137,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.1",
+      "chapter": 4,
+      "printed": 134,
+      "pdf": 140,
+      "models": [
+        "spherical-boundary",
+        "finite-square"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.2",
+      "chapter": 4,
+      "printed": 135,
+      "pdf": 141,
+      "models": [
+        "delta",
+        "spherical-boundary"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.3",
+      "chapter": 4,
+      "printed": 137,
+      "pdf": 143,
+      "models": [
+        "spherical-boundary"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.4",
+      "chapter": 4,
+      "printed": 138,
+      "pdf": 144,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.5",
+      "chapter": 4,
+      "printed": 138,
+      "pdf": 144,
+      "models": [
+        "rotor",
+        "orbital-field"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.6",
+      "chapter": 4,
+      "printed": 140,
+      "pdf": 146,
+      "models": [
+        "orbital-field"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.7",
+      "chapter": 4,
+      "printed": 141,
+      "pdf": 147,
+      "models": [
+        "orbital-field"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.8",
+      "chapter": 4,
+      "printed": 142,
+      "pdf": 148,
+      "models": [
+        "orbital-field"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.9",
+      "chapter": 4,
+      "printed": 143,
+      "pdf": 149,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.10",
+      "chapter": 4,
+      "printed": 144,
+      "pdf": 150,
+      "models": [
+        "coulomb",
+        "free-packet"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.11",
+      "chapter": 4,
+      "printed": 145,
+      "pdf": 151,
+      "models": [
+        "spherical-boundary"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.12",
+      "chapter": 4,
+      "printed": 146,
+      "pdf": 152,
+      "models": [
+        "spherical-boundary"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.13",
+      "chapter": 4,
+      "printed": 146,
+      "pdf": 152,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.14",
+      "chapter": 4,
+      "printed": 147,
+      "pdf": 153,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.15",
+      "chapter": 4,
+      "printed": 148,
+      "pdf": 154,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.16",
+      "chapter": 4,
+      "printed": 149,
+      "pdf": 155,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "4.17",
+      "chapter": 4,
+      "printed": 151,
+      "pdf": 157,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.18",
+      "chapter": 4,
+      "printed": 152,
+      "pdf": 158,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.19",
+      "chapter": 4,
+      "printed": 153,
+      "pdf": 159,
+      "models": [
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.20",
+      "chapter": 4,
+      "printed": 155,
+      "pdf": 161,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.21",
+      "chapter": 4,
+      "printed": 156,
+      "pdf": 162,
+      "models": [
+        "inverse-power"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.22",
+      "chapter": 4,
+      "printed": 157,
+      "pdf": 163,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "4.23",
+      "chapter": 4,
+      "printed": 157,
+      "pdf": 163,
+      "models": [
+        "logarithmic"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.24",
+      "chapter": 4,
+      "printed": 158,
+      "pdf": 164,
+      "models": [
+        "logarithmic"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.25",
+      "chapter": 4,
+      "printed": 158,
+      "pdf": 164,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "4.26",
+      "chapter": 4,
+      "printed": 159,
+      "pdf": 165,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.27",
+      "chapter": 4,
+      "printed": 159,
+      "pdf": 165,
+      "models": [
+        "orbital-field"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.28",
+      "chapter": 4,
+      "printed": 160,
+      "pdf": 166,
+      "models": [
+        "inverse-power"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.29",
+      "chapter": 4,
+      "printed": 160,
+      "pdf": 166,
+      "models": [
+        "spherical-boundary",
+        "finite-square"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.30",
+      "chapter": 4,
+      "printed": 162,
+      "pdf": 168,
+      "models": [
+        "morse"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.31",
+      "chapter": 4,
+      "printed": 163,
+      "pdf": 169,
+      "models": [
+        "coulomb",
+        "inverse-power"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.32",
+      "chapter": 4,
+      "printed": 164,
+      "pdf": 170,
+      "models": [
+        "exponential"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.33",
+      "chapter": 4,
+      "printed": 165,
+      "pdf": 171,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.34",
+      "chapter": 4,
+      "printed": 166,
+      "pdf": 172,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.35",
+      "chapter": 4,
+      "printed": 167,
+      "pdf": 173,
+      "models": [
+        "oscillator",
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "4.36",
+      "chapter": 4,
+      "printed": 169,
+      "pdf": 175,
+      "models": [
+        "cylinder"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.1",
+      "chapter": 5,
+      "printed": 173,
+      "pdf": 179,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.2",
+      "chapter": 5,
+      "printed": 175,
+      "pdf": 181,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.3",
+      "chapter": 5,
+      "printed": 177,
+      "pdf": 183,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.4",
+      "chapter": 5,
+      "printed": 178,
+      "pdf": 184,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.5",
+      "chapter": 5,
+      "printed": 179,
+      "pdf": 185,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.6",
+      "chapter": 5,
+      "printed": 179,
+      "pdf": 185,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.7",
+      "chapter": 5,
+      "printed": 181,
+      "pdf": 187,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.8",
+      "chapter": 5,
+      "printed": 182,
+      "pdf": 188,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.9",
+      "chapter": 5,
+      "printed": 183,
+      "pdf": 189,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.10",
+      "chapter": 5,
+      "printed": 183,
+      "pdf": 189,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.11",
+      "chapter": 5,
+      "printed": 186,
+      "pdf": 192,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.12",
+      "chapter": 5,
+      "printed": 187,
+      "pdf": 193,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.13",
+      "chapter": 5,
+      "printed": 188,
+      "pdf": 194,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.14",
+      "chapter": 5,
+      "printed": 189,
+      "pdf": 195,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.15",
+      "chapter": 5,
+      "printed": 190,
+      "pdf": 196,
+      "models": [
+        "coulomb",
+        "orbital-field"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.16",
+      "chapter": 5,
+      "printed": 190,
+      "pdf": 196,
+      "models": [
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.17",
+      "chapter": 5,
+      "printed": 196,
+      "pdf": 202,
+      "models": [
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.18",
+      "chapter": 5,
+      "printed": 197,
+      "pdf": 203,
+      "models": [
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.19",
+      "chapter": 5,
+      "printed": 199,
+      "pdf": 205,
+      "models": [
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.20",
+      "chapter": 5,
+      "printed": 200,
+      "pdf": 206,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.21",
+      "chapter": 5,
+      "printed": 201,
+      "pdf": 207,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.22",
+      "chapter": 5,
+      "printed": 203,
+      "pdf": 209,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.23",
+      "chapter": 5,
+      "printed": 204,
+      "pdf": 210,
+      "models": [
+        "atomic-many"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.24",
+      "chapter": 5,
+      "printed": 205,
+      "pdf": 211,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.25",
+      "chapter": 5,
+      "printed": 207,
+      "pdf": 213,
+      "models": [
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.26",
+      "chapter": 5,
+      "printed": 208,
+      "pdf": 214,
+      "models": [
+        "coulomb",
+        "orbital-field"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.27",
+      "chapter": 5,
+      "printed": 211,
+      "pdf": 217,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.28",
+      "chapter": 5,
+      "printed": 212,
+      "pdf": 218,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.29",
+      "chapter": 5,
+      "printed": 214,
+      "pdf": 220,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.30",
+      "chapter": 5,
+      "printed": 215,
+      "pdf": 221,
+      "models": [
+        "oscillator",
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.31",
+      "chapter": 5,
+      "printed": 216,
+      "pdf": 222,
+      "models": [
+        "rotor"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.32",
+      "chapter": 5,
+      "printed": 218,
+      "pdf": 224,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.33",
+      "chapter": 5,
+      "printed": 220,
+      "pdf": 226,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "5.34",
+      "chapter": 5,
+      "printed": 221,
+      "pdf": 227,
+      "models": [
+        "angular-space"
+      ],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "5.35",
+      "chapter": 5,
+      "printed": 222,
+      "pdf": 228,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.36",
+      "chapter": 5,
+      "printed": 225,
+      "pdf": 231,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.37",
+      "chapter": 5,
+      "printed": 226,
+      "pdf": 232,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.38",
+      "chapter": 5,
+      "printed": 227,
+      "pdf": 233,
+      "models": [
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.39",
+      "chapter": 5,
+      "printed": 229,
+      "pdf": 235,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.40",
+      "chapter": 5,
+      "printed": 229,
+      "pdf": 235,
+      "models": [
+        "linear-force"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.41",
+      "chapter": 5,
+      "printed": 230,
+      "pdf": 236,
+      "models": [
+        "linear-force"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.42",
+      "chapter": 5,
+      "printed": 231,
+      "pdf": 237,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.43",
+      "chapter": 5,
+      "printed": 232,
+      "pdf": 238,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.44",
+      "chapter": 5,
+      "printed": 233,
+      "pdf": 239,
+      "models": [
+        "delta"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.45",
+      "chapter": 5,
+      "printed": 233,
+      "pdf": 239,
+      "models": [
+        "exponential"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.46",
+      "chapter": 5,
+      "printed": 234,
+      "pdf": 240,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "5.47",
+      "chapter": 5,
+      "printed": 235,
+      "pdf": 241,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.48",
+      "chapter": 5,
+      "printed": 236,
+      "pdf": 242,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.49",
+      "chapter": 5,
+      "printed": 237,
+      "pdf": 243,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.50",
+      "chapter": 5,
+      "printed": 239,
+      "pdf": 245,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.51",
+      "chapter": 5,
+      "printed": 239,
+      "pdf": 245,
+      "models": [
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.52",
+      "chapter": 5,
+      "printed": 240,
+      "pdf": 246,
+      "models": [
+        "oscillator",
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.53",
+      "chapter": 5,
+      "printed": 241,
+      "pdf": 247,
+      "models": [
+        "oscillator"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "5.54",
+      "chapter": 5,
+      "printed": 242,
+      "pdf": 248,
+      "models": [],
+      "classification": "kinematic-or-general-method",
+      "reviewed": true
+    },
+    {
+      "id": "6.1",
+      "chapter": 6,
+      "printed": 246,
+      "pdf": 252,
+      "models": [
+        "coulomb",
+        "multi-spin",
+        "delta"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.2",
+      "chapter": 6,
+      "printed": 248,
+      "pdf": 254,
+      "models": [
+        "coulomb",
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.3",
+      "chapter": 6,
+      "printed": 248,
+      "pdf": 254,
+      "models": [
+        "coulomb",
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.4",
+      "chapter": 6,
+      "printed": 250,
+      "pdf": 256,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.5",
+      "chapter": 6,
+      "printed": 250,
+      "pdf": 256,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.6",
+      "chapter": 6,
+      "printed": 251,
+      "pdf": 257,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.7",
+      "chapter": 6,
+      "printed": 252,
+      "pdf": 258,
+      "models": [
+        "single-spin",
+        "orbital-field"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.8",
+      "chapter": 6,
+      "printed": 253,
+      "pdf": 259,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.9",
+      "chapter": 6,
+      "printed": 255,
+      "pdf": 261,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.10",
+      "chapter": 6,
+      "printed": 255,
+      "pdf": 261,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.11",
+      "chapter": 6,
+      "printed": 256,
+      "pdf": 262,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.12",
+      "chapter": 6,
+      "printed": 257,
+      "pdf": 263,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.13",
+      "chapter": 6,
+      "printed": 258,
+      "pdf": 264,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.14",
+      "chapter": 6,
+      "printed": 261,
+      "pdf": 267,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.15",
+      "chapter": 6,
+      "printed": 262,
+      "pdf": 268,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.16",
+      "chapter": 6,
+      "printed": 263,
+      "pdf": 269,
+      "models": [
+        "single-spin",
+        "coulomb",
+        "spin-orbit"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.17",
+      "chapter": 6,
+      "printed": 264,
+      "pdf": 270,
+      "models": [
+        "coulomb",
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.18",
+      "chapter": 6,
+      "printed": 264,
+      "pdf": 270,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.19",
+      "chapter": 6,
+      "printed": 265,
+      "pdf": 271,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.20",
+      "chapter": 6,
+      "printed": 267,
+      "pdf": 273,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.21",
+      "chapter": 6,
+      "printed": 267,
+      "pdf": 273,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.22",
+      "chapter": 6,
+      "printed": 269,
+      "pdf": 275,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.23",
+      "chapter": 6,
+      "printed": 271,
+      "pdf": 277,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.24",
+      "chapter": 6,
+      "printed": 272,
+      "pdf": 278,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.25",
+      "chapter": 6,
+      "printed": 273,
+      "pdf": 279,
+      "models": [
+        "single-spin",
+        "two-level"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.26",
+      "chapter": 6,
+      "printed": 274,
+      "pdf": 280,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.27",
+      "chapter": 6,
+      "printed": 275,
+      "pdf": 281,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.28",
+      "chapter": 6,
+      "printed": 277,
+      "pdf": 283,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.29",
+      "chapter": 6,
+      "printed": 280,
+      "pdf": 286,
+      "models": [
+        "single-spin",
+        "coulomb"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.30",
+      "chapter": 6,
+      "printed": 282,
+      "pdf": 288,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.31",
+      "chapter": 6,
+      "printed": 283,
+      "pdf": 289,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.32",
+      "chapter": 6,
+      "printed": 284,
+      "pdf": 290,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.33",
+      "chapter": 6,
+      "printed": 285,
+      "pdf": 291,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.34",
+      "chapter": 6,
+      "printed": 287,
+      "pdf": 293,
+      "models": [
+        "coulomb",
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.35",
+      "chapter": 6,
+      "printed": 288,
+      "pdf": 294,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.36",
+      "chapter": 6,
+      "printed": 289,
+      "pdf": 295,
+      "models": [
+        "single-spin",
+        "free-packet",
+        "spin-orbit"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.37",
+      "chapter": 6,
+      "printed": 291,
+      "pdf": 297,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.38",
+      "chapter": 6,
+      "printed": 292,
+      "pdf": 298,
+      "models": [
+        "multi-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.39",
+      "chapter": 6,
+      "printed": 293,
+      "pdf": 299,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.40",
+      "chapter": 6,
+      "printed": 294,
+      "pdf": 300,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.41",
+      "chapter": 6,
+      "printed": 295,
+      "pdf": 301,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.42",
+      "chapter": 6,
+      "printed": 296,
+      "pdf": 302,
+      "models": [
+        "single-spin",
+        "step-barrier"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.43",
+      "chapter": 6,
+      "printed": 297,
+      "pdf": 303,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.44",
+      "chapter": 6,
+      "printed": 298,
+      "pdf": 304,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.45",
+      "chapter": 6,
+      "printed": 299,
+      "pdf": 305,
+      "models": [
+        "single-spin",
+        "spin-orbit"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.46",
+      "chapter": 6,
+      "printed": 301,
+      "pdf": 307,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.47",
+      "chapter": 6,
+      "printed": 301,
+      "pdf": 307,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.48",
+      "chapter": 6,
+      "printed": 302,
+      "pdf": 308,
+      "models": [
+        "single-spin",
+        "hard-box"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.49",
+      "chapter": 6,
+      "printed": 304,
+      "pdf": 310,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.50",
+      "chapter": 6,
+      "printed": 306,
+      "pdf": 312,
+      "models": [
+        "single-spin",
+        "coulomb",
+        "orbital-field"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.51",
+      "chapter": 6,
+      "printed": 307,
+      "pdf": 313,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.52",
+      "chapter": 6,
+      "printed": 308,
+      "pdf": 314,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.53",
+      "chapter": 6,
+      "printed": 308,
+      "pdf": 314,
+      "models": [
+        "single-spin",
+        "spin-orbit"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.54",
+      "chapter": 6,
+      "printed": 309,
+      "pdf": 315,
+      "models": [
+        "single-spin"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.55",
+      "chapter": 6,
+      "printed": 310,
+      "pdf": 316,
+      "models": [
+        "oscillator",
+        "single-spin",
+        "spin-orbit"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "6.56",
+      "chapter": 6,
+      "printed": 311,
+      "pdf": 317,
+      "models": [
+        "single-spin",
+        "delta",
+        "step-barrier"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.1",
+      "chapter": 7,
+      "printed": 314,
+      "pdf": 320,
+      "models": [
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.2",
+      "chapter": 7,
+      "printed": 314,
+      "pdf": 320,
+      "models": [
+        "oscillator",
+        "multi-spin",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.3",
+      "chapter": 7,
+      "printed": 316,
+      "pdf": 322,
+      "models": [
+        "hard-box",
+        "multi-spin",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.4",
+      "chapter": 7,
+      "printed": 317,
+      "pdf": 323,
+      "models": [
+        "oscillator",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.5",
+      "chapter": 7,
+      "printed": 317,
+      "pdf": 323,
+      "models": [
+        "oscillator",
+        "multi-spin",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.6",
+      "chapter": 7,
+      "printed": 319,
+      "pdf": 325,
+      "models": [
+        "identical",
+        "atomic-many"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.7",
+      "chapter": 7,
+      "printed": 319,
+      "pdf": 325,
+      "models": [
+        "hard-box",
+        "delta",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.8",
+      "chapter": 7,
+      "printed": 321,
+      "pdf": 327,
+      "models": [
+        "oscillator",
+        "multi-spin",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.9",
+      "chapter": 7,
+      "printed": 324,
+      "pdf": 330,
+      "models": [
+        "oscillator",
+        "multi-spin",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.10",
+      "chapter": 7,
+      "printed": 325,
+      "pdf": 331,
+      "models": [
+        "hard-box",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.11",
+      "chapter": 7,
+      "printed": 326,
+      "pdf": 332,
+      "models": [
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.12",
+      "chapter": 7,
+      "printed": 327,
+      "pdf": 333,
+      "models": [
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.13",
+      "chapter": 7,
+      "printed": 330,
+      "pdf": 336,
+      "models": [
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.14",
+      "chapter": 7,
+      "printed": 332,
+      "pdf": 338,
+      "models": [
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.15",
+      "chapter": 7,
+      "printed": 333,
+      "pdf": 339,
+      "models": [
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.16",
+      "chapter": 7,
+      "printed": 336,
+      "pdf": 342,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.17",
+      "chapter": 7,
+      "printed": 337,
+      "pdf": 343,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.18",
+      "chapter": 7,
+      "printed": 338,
+      "pdf": 344,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.19",
+      "chapter": 7,
+      "printed": 339,
+      "pdf": 345,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.20",
+      "chapter": 7,
+      "printed": 340,
+      "pdf": 346,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.21",
+      "chapter": 7,
+      "printed": 341,
+      "pdf": 347,
+      "models": [
+        "coulomb",
+        "multi-spin",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.22",
+      "chapter": 7,
+      "printed": 342,
+      "pdf": 348,
+      "models": [
+        "hard-box",
+        "multi-spin",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.23",
+      "chapter": 7,
+      "printed": 343,
+      "pdf": 349,
+      "models": [
+        "hard-box",
+        "multi-spin",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.24",
+      "chapter": 7,
+      "printed": 345,
+      "pdf": 351,
+      "models": [
+        "hard-box",
+        "multi-spin",
+        "delta",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.25",
+      "chapter": 7,
+      "printed": 346,
+      "pdf": 352,
+      "models": [
+        "oscillator",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.26",
+      "chapter": 7,
+      "printed": 347,
+      "pdf": 353,
+      "models": [
+        "oscillator",
+        "identical"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    },
+    {
+      "id": "7.27",
+      "chapter": 7,
+      "printed": 348,
+      "pdf": 354,
+      "models": [
+        "angular-space",
+        "fock-modes"
+      ],
+      "classification": "named-model",
+      "reviewed": true
+    }
+  ],
+  "qualityNotes": [
+    "289个题号均与当前PDF一致，零缺号/重复号。",
+    "4.1是三维球方阱，非立方盒；5.42是半谐振子，非半轴库仑；7.27是双玻色模角动量，非散射；1.43是硬壁加δ点势，非指数势。",
+    "题量不是考研真题命中率；宽模型族与窄子模型不能不加说明地比较。",
+    "频数允许重叠，不能把各模型题数相加当作总题数。",
+    "数值实验的代表模型不等于把该模型族所有变式逐题实现；模型库展示对应范围。"
+  ]
+}

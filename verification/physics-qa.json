@@ -1,0 +1,40 @@
+{
+  "command": "node --test --test-reporter=tap tests/physics.test.cjs tests/models.test.cjs",
+  "passed": 34,
+  "failed": 0,
+  "exitCode": 0,
+  "sceneCount": 52,
+  "panelGuides": 103,
+  "formulaBlocks": 103,
+  "chapterSceneCounts": [
+    12,
+    5,
+    5,
+    11,
+    5,
+    7,
+    7
+  ],
+  "source": "User-supplied Chen Esheng PDF; 446 pages; Chapters 1-7, PDF pages 7-357",
+  "pdfToPrintedOffset": 6,
+  "checks": [
+    "All previous 22 invariant groups retained",
+    "Hydrogen n<=4 radial/angular norms, exact 1s and mean radius",
+    "Variable-width hard well norms, boundaries, scaled Schrodinger residual",
+    "Finite-well matching, all bound-state norms at parameter extremes, derivative matching",
+    "Delta position/Fourier norms and derivative jump",
+    "Plane rotor periodicity, norm and probability peak speed",
+    "Oscillator eigen/coherent scaling and mean motion",
+    "Coupled normal-mode Gaussian norm, covariance and Ehrenfest equation",
+    "Two-spin exact complex amplitudes obey 2x2 Schrodinger equation",
+    "Landau norm, guide centre and energy gap",
+    "Spherical s-wave norm and absent bound state at/below threshold",
+    "Asymmetric rotor spherical-inertia limit",
+    "Spin-orbit total z projection and flux ground-spectrum periodicity",
+    "Contact symmetry/antisymmetry integrals and 3D box norm",
+    "103 panel guides and KaTeX syntactic validation",
+    "289 unique reviewed IDs, incidence counts, page offsets and known source corrections",
+    "52 renderers at defaults, individual parameter endpoints/options, wide/narrow dimensions and three times"
+  ],
+  "limits": "Numerical tolerances and sampled cases validate the stated models, not every parameter combination, experimental realization or all textbook solutions. Finite sampling and finite plot windows remain visual approximations."
+}

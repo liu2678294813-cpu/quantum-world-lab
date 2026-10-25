@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "fermion single-mode occupancy control 0..1",
+    "harmonic quantum number disabled in coherent mode",
+    "all 103 formula blocks fit at 6 widths per math-width.json",
+    "physical-model filter and visible question page reference list"
+  ],
+  "consoleErrors": []
+}
